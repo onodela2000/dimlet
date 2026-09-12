@@ -17,6 +17,8 @@ TEMPLATE = (ROOT / 'website/index.template.html').read_text(encoding='utf-8')
 BASE = 'https://onodela2000.github.io/dimlet/'
 LANGUAGES = {'en': ('', 'English'), 'ja': ('ja/', '日本語'), 'zh-Hans': ('zh-hans/', '简体中文'), 'fr': ('fr/', 'Français'), 'de': ('de/', 'Deutsch')}
 GUIDE = 'ja/mac-usb-c-monitor-charging-screen-off/'
+VERSION = (ROOT / 'VERSION').read_text().strip()
+DOWNLOAD_URL = f'https://github.com/onodela2000/dimlet/releases/download/v{VERSION}/Dimlet-{VERSION}-macos-universal.zip'
 TITLES = {
     'en': 'Darken Mac screens without sleep | USB-C charging & AI tasks | Dimlet',
     'ja': 'Macの画面だけ暗く・スリープさせない｜USB-C充電と作業を続ける Dimlet',
@@ -43,8 +45,8 @@ def render(language, path=None):
     alternatives = '\n  '.join(f'<link rel="alternate" hreflang="{code}" href="{BASE}{folder}">' for code, (folder, _) in LANGUAGES.items())
     alternatives += f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}">'
     links = ' '.join(f'<a href="{prefix}{folder or "./"}" lang="{code}" hreflang="{code}"' + (' aria-current="page"' if code == language else '') + f'>{name}</a>' for code, (folder, name) in LANGUAGES.items())
-    schema = {'@context': 'https://schema.org', '@type': 'SoftwareApplication', 'name': 'Dimlet', 'url': BASE + directory, 'description': DESCRIPTIONS[language], 'operatingSystem': 'macOS 13 or later', 'applicationCategory': 'UtilitiesApplication', 'softwareVersion': (ROOT / 'VERSION').read_text().strip(), 'inLanguage': language, 'license': 'https://github.com/onodela2000/dimlet/blob/main/LICENSE', 'downloadUrl': 'https://github.com/onodela2000/dimlet/releases/latest', 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}}
-    values = {'LANG': language, 'TITLE': escape(TITLES[language]), 'DESCRIPTION': escape(DESCRIPTIONS[language]), 'CANONICAL': BASE + path, 'ASSET_BASE': prefix, 'HOME': prefix + (directory or './'), 'GUIDE_URL': prefix + GUIDE, 'LANGUAGE_LINKS': links, 'ALTERNATES': alternatives, 'SCHEMA': json_script(schema), 'CSS_HASH': hashlib.sha256((SITE / 'style.css').read_bytes()).hexdigest()[:12], 'JS_HASH': hashlib.sha256((SITE / 'app.js').read_bytes()).hexdigest()[:12]}
+    schema = {'@context': 'https://schema.org', '@type': 'SoftwareApplication', 'name': 'Dimlet', 'url': BASE + directory, 'description': DESCRIPTIONS[language], 'operatingSystem': 'macOS 13 or later', 'applicationCategory': 'UtilitiesApplication', 'softwareVersion': (ROOT / 'VERSION').read_text().strip(), 'inLanguage': language, 'license': 'https://github.com/onodela2000/dimlet/blob/main/LICENSE', 'downloadUrl': DOWNLOAD_URL, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}}
+    values = {'DOWNLOAD_URL': DOWNLOAD_URL, 'LANG': language, 'TITLE': escape(TITLES[language]), 'DESCRIPTION': escape(DESCRIPTIONS[language]), 'CANONICAL': BASE + path, 'ASSET_BASE': prefix, 'HOME': prefix + (directory or './'), 'GUIDE_URL': prefix + GUIDE, 'LANGUAGE_LINKS': links, 'ALTERNATES': alternatives, 'SCHEMA': json_script(schema), 'CSS_HASH': hashlib.sha256((SITE / 'style.css').read_bytes()).hexdigest()[:12], 'JS_HASH': hashlib.sha256((SITE / 'app.js').read_bytes()).hexdigest()[:12]}
     for key, value in values.items():
         page = page.replace('{{' + key + '}}', value)
     for code, (folder, _) in LANGUAGES.items():
@@ -58,7 +60,7 @@ def render(language, path=None):
 
 outputs = {Path(folder) / 'index.html': render(language) for language, (folder, _) in LANGUAGES.items()}
 article = render('ja', GUIDE)
-article_body = (ROOT / 'website/charging-guide.html').read_text(encoding='utf-8').replace('{{HOME}}', '../')
+article_body = (ROOT / 'website/charging-guide.html').read_text(encoding='utf-8').replace('{{HOME}}', '../').replace('{{DOWNLOAD_URL}}', DOWNLOAD_URL)
 article = re.sub(r'<main id="main">.*?</main>', lambda _: article_body, article, flags=re.S)
 article = article.replace('href="#how"', 'href="../#how"')
 article = re.sub(r'\s*<link rel="alternate"[^>]+>', '', article)

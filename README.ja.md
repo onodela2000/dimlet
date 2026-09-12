@@ -1,7 +1,7 @@
 <p align="center"><img src="assets/hero.svg" alt="Dimlet — 画面は静かに。Macは、そのまま。" width="100%"></p>
 
 <p align="center">
-  <a href="https://github.com/onodela2000/dimlet/releases/latest"><b>macOS版をダウンロード</b></a>
+  <a href="https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip"><b>macOS版をダウンロード</b></a>
   &nbsp; · &nbsp; <a href="https://onodela2000.github.io/dimlet/">公式サイト</a>
   &nbsp; · &nbsp; <a href="README.md">English</a>
 </p>
@@ -22,7 +22,7 @@ Dimletは、外部モニターだけ、または内蔵画面も含めたすべ�
 
 **macOS 13以降**が必要です。配布版はApple Silicon／Intel両対応のUniversalアプリです。
 
-1. [Releases](https://github.com/onodela2000/dimlet/releases/latest)から`Dimlet-0.3.0-macos-universal.zip`をダウンロード。
+1. **[Mac版アプリ（ZIP）をダウンロード](https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip)**。Mシリーズ／Intel共通のファイルです。ダウンロードはこれ1つで完了です。
 2. ZIPを展開し、**Dimlet.app**を**アプリケーション**フォルダへ移動。
 3. Dimletを開くと、メニューバーに小さなモニターが表示されます。初期状態は**OFF**です。
 

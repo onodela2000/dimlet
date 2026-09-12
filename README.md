@@ -1,7 +1,7 @@
 <p align="center"><img src="assets/hero.svg" alt="Dimlet — Screens rest. Your Mac keeps going." width="100%"></p>
 
 <p align="center">
-  <a href="https://github.com/onodela2000/dimlet/releases/latest"><b>Download for macOS</b></a>
+  <a href="https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip"><b>Download for macOS</b></a>
   &nbsp; · &nbsp; <a href="https://onodela2000.github.io/dimlet/">Website</a>
   &nbsp; · &nbsp; <a href="README.ja.md">日本語</a>
   &nbsp; · &nbsp; <a href="#build-it-yourself">Build from source</a>
@@ -23,7 +23,7 @@ Running an AI agent, rendering a video, or waiting on a long build? Give your ro
 
 Requires **macOS 13 or later**. The universal release includes **Apple Silicon and Intel** binaries.
 
-1. Download `Dimlet-0.3.0-macos-universal.zip` from [Releases](https://github.com/onodela2000/dimlet/releases/latest).
+1. Download **[Dimlet for Mac (.zip)](https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip)**. This single file supports both Apple Silicon and Intel; no other downloads are needed.
 2. Unzip it and drag **Dimlet.app** into **Applications**.
 3. Open Dimlet. Look for the little monitor in your **menu bar**. Blackout starts **OFF**.
 
