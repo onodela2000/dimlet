@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f9f7f2">
+  <title>Mac-Bildschirme abdunkeln ohne Ruhezustand | Dimlet</title>
+  <meta name="description" content="Du möchtest über den USB-C-Monitor laden, ohne den Raum zu beleuchten? Ein KI-Job oder Rendering soll weiterlaufen? Dimlet hält die Monitore verbunden, verdeckt sie schwarz und verhindert den automatischen Ruhezustand. Kostenlos und Open Source · macOS 13+ · Apple Silicon und Intel">
+  <meta property="og:title" content="Mac-Bildschirme abdunkeln ohne Ruhezustand | Dimlet">
+  <meta property="og:description" content="Du möchtest über den USB-C-Monitor laden, ohne den Raum zu beleuchten? Ein KI-Job oder Rendering soll weiterlaufen? Dimlet hält die Monitore verbunden, verdeckt sie schwarz und verhindert den automatischen Ruhezustand. Kostenlos und Open Source · macOS 13+ · Apple Silicon und Intel">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onodela2000.github.io/dimlet/de/">
+  <meta property="og:image" content="https://onodela2000.github.io/dimlet/assets/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://onodela2000.github.io/dimlet/de/">
+  <link rel="alternate" hreflang="en" href="https://onodela2000.github.io/dimlet/">
+  <link rel="alternate" hreflang="ja" href="https://onodela2000.github.io/dimlet/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://onodela2000.github.io/dimlet/zh-hans/">
+  <link rel="alternate" hreflang="fr" href="https://onodela2000.github.io/dimlet/fr/">
+  <link rel="alternate" hreflang="de" href="https://onodela2000.github.io/dimlet/de/">
+  <link rel="alternate" hreflang="x-default" href="https://onodela2000.github.io/dimlet/">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Dimlet", "url": "https://onodela2000.github.io/dimlet/de/", "description": "Du möchtest über den USB-C-Monitor laden, ohne den Raum zu beleuchten? Ein KI-Job oder Rendering soll weiterlaufen? Dimlet hält die Monitore verbunden, verdeckt sie schwarz und verhindert den automatischen Ruhezustand. Kostenlos und Open Source · macOS 13+ · Apple Silicon und Intel", "operatingSystem": "macOS 13 or later", "applicationCategory": "UtilitiesApplication", "softwareVersion": "0.3.0", "inLanguage": "de", "license": "https://github.com/onodela2000/dimlet/blob/main/LICENSE", "downloadUrl": "https://github.com/onodela2000/dimlet/releases/latest", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+  <link rel="stylesheet" href="../style.css?v=ff7a2ff2e688">
+  <script src="../app.js?v=02ac9027086e" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav wrap">
+  <a class="brand" href="../de/" aria-label="Dimlet home"><img src="../assets/icon.svg" alt="" width="38" height="38">Dimlet<span class="version">v0.3</span></a>
+  <nav aria-label="Main navigation">
+    <a class="nav-how" href="#how" data-i18n="navHow">So funktioniert’s</a>
+    <a href="https://github.com/onodela2000/dimlet">GitHub <span aria-hidden="true">↗</span></a>
+    <label class="language"><span class="sr-only">Language</span><select id="language" aria-label="Language"><option value="en" data-url=".././">English</option><option value="ja" data-url="../ja/">日本語</option><option value="zh-Hans" data-url="../zh-hans/">简体中文</option><option value="fr" data-url="../fr/">Français</option><option value="de" data-url="../de/" selected>Deutsch</option></select></label>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero wrap">
+    <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> <span data-i18n="eyebrow">DUNKLE BILDSCHIRME. DEIN MAC ARBEITET WEITER.</span></p>
+    <h1><span data-i18n="headline1">Nur die Bildschirme ruhen.</span><br><em data-i18n="headline2">Dein Mac bleibt aktiv.</em></h1>
+    <p class="intro" data-i18n="intro">Du möchtest über den USB-C-Monitor laden, ohne den Raum zu beleuchten? Ein KI-Job oder Rendering soll weiterlaufen? Dimlet hält die Monitore verbunden, verdeckt sie schwarz und verhindert den automatischen Ruhezustand.</p>
+    <div class="actions"><a class="button primary" href="https://github.com/onodela2000/dimlet/releases/latest"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="download">Für Mac herunterladen</span></a><a class="button secondary" href="https://github.com/onodela2000/dimlet" data-i18n="source">Zum Quellcode ↗</a></div>
+    <p class="compat" data-i18n="compat">Kostenlos und Open Source · macOS 13+ · Apple Silicon und Intel</p>
+
+    <div class="demo" id="demo" data-blackout="false">
+      <div class="demo-top"><span class="demo-label" data-i18n="desk">DEIN SCHREIBTISCH, EIN WENIG RUHIGER</span><span class="live-label"><i></i><span data-i18n="live">Interaktive Vorschau</span></span></div>
+      <div class="scene" aria-hidden="true">
+        <span class="spark spark-one">✧</span><span class="spark spark-two">✦</span><span class="moon">☾</span>
+        <div class="monitor monitor-left"><div class="monitor-screen"><div class="wallpaper wallpaper-one"></div><div class="sleep-face"><span>⌣ &nbsp; ⌣</span><b>ᴗ</b></div></div><div class="monitor-chin"><i></i></div><div class="stand"></div><div class="foot"></div></div>
+        <div class="monitor monitor-right"><div class="monitor-screen"><div class="wallpaper wallpaper-two"></div><div class="sleep-face"><span>⌣ &nbsp; ⌣</span><b>ᴗ</b></div></div><div class="monitor-chin"><i></i></div><div class="stand"></div><div class="foot"></div></div>
+        <div class="laptop"><div class="laptop-screen"><div class="editor-bar"><i></i><i></i><i></i><span>still making things</span></div><div class="editor-body"><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><div class="working"><i></i>Mac at work</div></div></div><div class="laptop-base"></div></div>
+        <div class="desk-line"></div>
+      </div>
+      <div class="mode-picker" role="group" aria-label="Preview blackout mode"><button type="button" data-mode="externalOnly" aria-pressed="true" data-i18n="modeExternal">Nur externe Monitore</button><button type="button" data-mode="allDisplays" aria-pressed="false" data-i18n="modeAll">Alle Monitore</button></div>
+      <div class="demo-control"><img src="../assets/icon.svg" alt="" width="45" height="45"><div><strong data-i18n="toggleTitle">Monitore abdunkeln</strong><span id="demo-status" data-off="Die Bildschirme sind an. Probier den Schalter aus." data-external="Die Bildschirme ruhen. Der Mac arbeitet." data-all="Alle Bildschirme ruhen. Der Mac arbeitet." aria-live="polite" data-i18n="statusOff">Die Bildschirme sind an. Probier den Schalter aus.</span></div><button id="blackout-toggle" role="switch" aria-checked="false" aria-label="Monitore abdunkeln"><span></span></button></div>
+      <p class="demo-note" data-i18n="demoNote">Nur eine Vorschau. Deine echten Bildschirme bleiben unverändert.</p>
+    </div>
+  </section>
+
+  <section class="why wrap" id="why">
+    <p class="eyebrow" data-i18n="whyEyebrow">WARUM ES DIMLET GIBT</p>
+    <h2 data-i18n="whyTitle">Der Monitor lädt deinen Mac.<br>Sein Licht brauchst du nicht.</h2>
+    <div class="pain-grid"><article><h3 data-i18n="pain1Title">„Ich wollte nur laden.“</h3><p data-i18n="pain1">Ein USB-C-Monitor am Mac zeigt auch ein Bild. Je nach Modell kann das Ausschalten des Monitors auch die USB-C-Stromversorgung stoppen.</p></article><article><h3 data-i18n="pain2Title">„Mein Mac hat noch zu tun.“</h3><p data-i18n="pain2">Ein KI-Agent, Export oder langer Build soll weiterlaufen, während es im Raum dunkel wird. Den ganzen Mac schlafen zu legen passt dazu nicht.</p></article></div>
+    <p class="solution" data-i18n="solution">Dimlet hält die Videoverbindung aktiv und verdeckt Bildschirme mit schwarzen Fenstern. Wähle nur externe Monitore oder alle inklusive internem Display. Solange die App läuft, verhindert sie automatischen Ruhezustand.</p><p class="honest-note" data-i18n="honest">Nur laden, ohne laufende Aufgaben? Standby-Ladeeinstellungen oder ein separates Ladegerät können genügen. Dimlet ist für einen dunklen Arbeitsplatz bei weiterlaufendem Mac gedacht.</p>
+    <aside class="reading"><strong data-i18n="readingTitle">USB-C-Laden bei dunklem Bildschirm: Was prüfen?</strong><a href="../ja/mac-usb-c-monitor-charging-screen-off/" data-i18n="readingLink">Mac-Anleitung zu Bildschirmen und Laden lesen (Japanisch)</a></aside>
+  </section>
+  <section class="benefits wrap" aria-label="Features">
+    <article><span class="feature-icon" aria-hidden="true">◐</span><h2 data-i18n="feature1Title">Weniger Licht. Gleicher Schwung.</h2><p data-i18n="feature1">KI-Agenten, lange Builds, nächtliche Renderjobs. Lass sie weiterlaufen, während der Raum etwas ruhiger wird.</p></article>
+    <article><span class="feature-icon" aria-hidden="true">⌁</span><h2 data-i18n="feature2Title">Verbunden bleiben.</h2><p data-i18n="feature2">Monitore bleiben eingeschaltet und verbunden, damit USB-C-Laden weiter möglich ist. Das interne Display kann sichtbar bleiben oder ebenfalls abgedunkelt werden.</p></article>
+    <article><span class="feature-icon" aria-hidden="true">♡</span><h2 data-i18n="feature3Title">Klein, wo es zählt.</h2><p data-i18n="feature3">Natives Swift. Fünf Sprachen. Kein Konto, Tracking, Abo oder zusätzliche Berechtigungen.</p></article>
+  </section>
+
+  <section class="how wrap" id="how">
+    <div class="section-heading"><p class="eyebrow" data-i18n="howEyebrow">IN WENIGEN AUGENBLICKEN BEREIT</p><h2 data-i18n="howTitle">Eine kleine App.<br>Ein ruhigerer Arbeitsplatz.</h2><a class="text-link" id="guide-link" href="https://github.com/onodela2000/dimlet#install"><span data-i18n="guide">Installationsanleitung lesen</span> <span aria-hidden="true">↗</span></a></div>
+    <ol class="steps"><li><span class="step-number">01</span><div><h3 data-i18n="step1Title">Mach ein bisschen Platz.</h3><p data-i18n="step1">Lade die ZIP-Datei herunter, entpacke sie und verschiebe Dimlet nach Programme. Öffne die App und begrüße deinen kleinen Freund in der Menüleiste.</p></div></li><li><span class="step-number">02</span><div><h3 data-i18n="step2Title">Gönn den Bildschirmen eine Pause.</h3><p data-i18n="step2">Wähle im Menü nur externe Monitore oder alle Monitore inklusive internem Display. Wähle den aktiven Modus erneut, um die Abdunklung auszuschalten.</p></div></li><li><span class="step-number">03</span><div><h3 data-i18n="step3Title">Komm jederzeit zurück.</h3><p data-i18n="step3">Klicke auf einen schwarzen Bildschirm, um alle wieder einzublenden. Dimlet hält deinen Mac wach, bis du die App beendest.</p></div></li></ol>
+  </section>
+
+  <section class="questions wrap" aria-labelledby="questions-title"><p class="eyebrow" data-i18n="faqEyebrow">DIE KLEINEN DETAILS</p><h2 id="questions-title" data-i18n="faqTitle">Gut zu wissen.</h2>
+    <details><summary data-i18n="q5">Kann USB-C-Laden bei dunklem Bildschirm weitergehen?</summary><p data-i18n="a5">Dimlet hält den Monitor eingeschaltet und verbunden. Laden bleibt möglich, wenn die Hardware es unterstützt. Das Bild wird schwarz verdeckt; Videosignal und Panel werden nicht ausgeschaltet. Prüfe zuerst die Standby-Ladeeinstellungen.</p></details>
+    <details><summary data-i18n="q1">Werden die Monitore wirklich ausgeschaltet?</summary><p data-i18n="a1">Nein. Dimlet verdeckt die gewählten Bildschirme mit schwarzen Fenstern. Lass die Monitore eingeschaltet. Energieeinsparungen oder eine dunkle LCD-Hintergrundbeleuchtung sind nicht garantiert. USB-C-Laden hängt von der Hardware ab.</p></details>
+    <details><summary data-i18n="q2">Kann ich mein MacBook zuklappen?</summary><p data-i18n="a2">Lass den Deckel offen. Dimlet verhindert während der Laufzeit den automatischen Ruhezustand, aber nicht den Ruhezustand beim Zuklappen, manuell ausgelösten Ruhezustand, das Ausschalten oder einen leeren Akku.</p></details>
+    <details><summary data-i18n="q3">Sind Einstellungen oder Berechtigungen nötig?</summary><p data-i18n="a3">Zum Ausführen sind keine Bedienungshilfen-, Bildschirmaufnahme- oder Administratorrechte nötig. Die aktuelle Version ist nicht von Apple notarisiert. Beim ersten Start kann Systemeinstellungen → Datenschutz &amp; Sicherheit → Dennoch öffnen erforderlich sein. Details stehen in der Installationsanleitung.</p></details>
+    <details><summary data-i18n="q4">Funktioniert es mit meinem Setup?</summary><p data-i18n="a4">Ab macOS 13. Der externe Modus lässt gespiegelte Displays aus; der Modus für alle Monitore schließt das interne Display ein. Getestet auf M4 MacBook Air. Intel und ältere macOS-Versionen benötigen weitere Praxistests. Fünf Sprachen: Englisch, Japanisch, vereinfachtes Chinesisch, Französisch und Deutsch.</p></details>
+  </section>
+  <section class="closing wrap"><img src="../assets/icon.svg" alt="Dimlet's sleepy monitor mascot" width="84" height="84"><h2 data-i18n="closing">Ein bisschen weniger Licht.<br>Ein bisschen mehr Ruhe.</h2><a class="button primary" href="https://github.com/onodela2000/dimlet/releases/latest" data-i18n="download">Für Mac herunterladen</a><span data-i18n="closingNote">Frei zum Nutzen. Frei zum Verändern.</span></section>
+</main>
+<nav class="locale-links wrap" aria-label="Language"><a href=".././" lang="en" hreflang="en">English</a> <a href="../ja/" lang="ja" hreflang="ja">日本語</a> <a href="../zh-hans/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a> <a href="../fr/" lang="fr" hreflang="fr">Français</a> <a href="../de/" lang="de" hreflang="de" aria-current="page">Deutsch</a></nav>
+<footer class="wrap"><a class="brand" href="../de/">Dimlet <span aria-hidden="true">✦</span></a><p data-i18n="footer">Für die Arbeit, die weitergeht.</p><div><a href="https://github.com/onodela2000/dimlet">GitHub ↗</a><a href="https://github.com/onodela2000/dimlet/blob/main/LICENSE">MIT License</a></div></footer>
+</body>
+</html>

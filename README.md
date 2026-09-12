@@ -94,13 +94,19 @@ This briefly covers both external and built-in screens, checks both modes, click
 
 ## Website
 
-The [landing page](https://onodela2000.github.io/dimlet/) lives in `site/`: plain HTML, CSS, JavaScript, and local assets. No build step or third-party dependencies. Preview it with:
+The [English landing page](https://onodela2000.github.io/dimlet/) and [Japanese page](https://onodela2000.github.io/dimlet/ja/) are complete static HTML, as are Chinese, French, and German. Search crawlers and visitors without JavaScript get the same readable content. The [Japanese USB-C charging guide](https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/) explains when Dimlet helps and when monitor settings or a separate charger may be enough.
+
+Edit `website/index.template.html`, `website/locales.json`, or `website/charging-guide.html`, then regenerate:
 
 ```bash
+python3 scripts/build_site.py
+python3 scripts/build_site.py --check
 python3 -m http.server 8765 --directory site
 ```
 
-Open `http://localhost:8765`. Changes to `site/` on `main` deploy automatically through `.github/workflows/pages.yml`. The page supports the same five languages as the app; its switch is a visual demo only.
+Open `http://localhost:8765`. Commit the generated `site/` HTML too. Shared CSS and demo JavaScript live in `site/`; the generator fingerprints those asset URLs to avoid stale caches. Python's standard library is the only build dependency. CI checks generated output, internal links, metadata, and structured data before deploying to GitHub Pages.
+
+Each language has its own URL, self-canonical, and reciprocal `hreflang` links. `site/sitemap.xml` lists the public pages. No automatic language redirect is used; the URL determines the language. For index monitoring, the owner can add the URL-prefix property `https://onodela2000.github.io/dimlet/` in Google Search Console and submit `sitemap.xml`. A sitemap does not guarantee indexing or rankings. A project-level `robots.txt` would not control the host root, so this repository does not add one.
 
 ## Contribute
 

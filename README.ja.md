@@ -85,7 +85,11 @@ Universal版は`./scripts/build.sh --universal`でビルドします。`dist/`�
 
 ## 公式サイトの更新
 
-[LP](https://onodela2000.github.io/dimlet/)は`site/`にあります。HTML・CSS・JavaScriptとローカル画像のみで、ビルドや外部ライブラリは不要です。`python3 -m http.server 8765 --directory site`を実行して`http://localhost:8765`で確認できます。`main`の`site/`を更新するとGitHub Pagesへ自動公開されます。LPも5言語に対応し、スイッチはページ内だけで動くデモです。
+[日本語LP](https://onodela2000.github.io/dimlet/ja/)と[USB-C充電の解説](https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/)を公開しています。5言語それぞれにURLがあり、JavaScriptを実行しなくても本文を読めます。
+
+編集元は`website/index.template.html`、`website/locales.json`、`website/charging-guide.html`です。編集後に`python3 scripts/build_site.py`で生成し、`python3 scripts/build_site.py --check`でリンク・メタ情報・生成物を確認します。生成した`site/`もコミットしてください。プレビューは`python3 -m http.server 8765 --directory site`で起動できます。CSSとデモのJavaScriptは`site/`にあり、変更後も再生成してください。`main`へ反映するとGitHub Pagesに自動公開されます。
+
+各言語のcanonical・hreflangと`sitemap.xml`を生成します。検索掲載の確認には、所有者のGoogle Search ConsoleでURLプレフィックス`https://onodela2000.github.io/dimlet/`を登録し、`sitemap.xml`を送信できます。サイトマップは掲載や順位を保証するものではありません。
 
 ## コントリビュート
 

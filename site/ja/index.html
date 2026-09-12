@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f9f7f2">
+  <title>Macの画面だけ暗く・スリープさせない｜USB-C充電と作業を続ける Dimlet</title>
+  <meta name="description" content="USB-CモニターでMacを充電だけしたいのに画面もつく、電源OFFで給電が止まる、AI処理中はスリープさせたくない。Dimletは外部だけ・内蔵も含む全画面を黒表示にする無料Macアプリ。給電やスリープとの違いも解説。">
+  <meta property="og:title" content="Macの画面だけ暗く・スリープさせない｜USB-C充電と作業を続ける Dimlet">
+  <meta property="og:description" content="USB-CモニターでMacを充電だけしたいのに画面もつく、電源OFFで給電が止まる、AI処理中はスリープさせたくない。Dimletは外部だけ・内蔵も含む全画面を黒表示にする無料Macアプリ。給電やスリープとの違いも解説。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onodela2000.github.io/dimlet/ja/">
+  <meta property="og:image" content="https://onodela2000.github.io/dimlet/assets/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://onodela2000.github.io/dimlet/ja/">
+  <link rel="alternate" hreflang="en" href="https://onodela2000.github.io/dimlet/">
+  <link rel="alternate" hreflang="ja" href="https://onodela2000.github.io/dimlet/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://onodela2000.github.io/dimlet/zh-hans/">
+  <link rel="alternate" hreflang="fr" href="https://onodela2000.github.io/dimlet/fr/">
+  <link rel="alternate" hreflang="de" href="https://onodela2000.github.io/dimlet/de/">
+  <link rel="alternate" hreflang="x-default" href="https://onodela2000.github.io/dimlet/">
+  <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Dimlet", "url": "https://onodela2000.github.io/dimlet/ja/", "description": "USB-CモニターでMacを充電だけしたいのに画面もつく、電源OFFで給電が止まる、AI処理中はスリープさせたくない。Dimletは外部だけ・内蔵も含む全画面を黒表示にする無料Macアプリ。給電やスリープとの違いも解説。", "operatingSystem": "macOS 13 or later", "applicationCategory": "UtilitiesApplication", "softwareVersion": "0.3.0", "inLanguage": "ja", "license": "https://github.com/onodela2000/dimlet/blob/main/LICENSE", "downloadUrl": "https://github.com/onodela2000/dimlet/releases/latest", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+  <link rel="stylesheet" href="../style.css?v=ff7a2ff2e688">
+  <script src="../app.js?v=02ac9027086e" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav wrap">
+  <a class="brand" href="../ja/" aria-label="Dimlet home"><img src="../assets/icon.svg" alt="" width="38" height="38">Dimlet<span class="version">v0.3</span></a>
+  <nav aria-label="Main navigation">
+    <a class="nav-how" href="#how" data-i18n="navHow">使い方</a>
+    <a href="https://github.com/onodela2000/dimlet">GitHub <span aria-hidden="true">↗</span></a>
+    <label class="language"><span class="sr-only">Language</span><select id="language" aria-label="Language"><option value="en" data-url=".././">English</option><option value="ja" data-url="../ja/" selected>日本語</option><option value="zh-Hans" data-url="../zh-hans/">简体中文</option><option value="fr" data-url="../fr/">Français</option><option value="de" data-url="../de/">Deutsch</option></select></label>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero wrap">
+    <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> <span data-i18n="eyebrow">Macの画面だけ暗く。USB-C充電も、作業も続けたいときに。</span></p>
+    <h1><span data-i18n="headline1">画面だけ暗く。</span><br><em data-i18n="headline2">Macは動かしたまま。</em></h1>
+    <p class="intro" data-i18n="intro">USB-Cモニターで充電だけしたいのに、画面もついてしまう。電源を切ると給電も止まる。でも、AIの処理は続けたい。Dimletは接続を保ったまま画面を黒く覆い、Macの自動スリープを防ぎます。</p>
+    <div class="actions"><a class="button primary" href="https://github.com/onodela2000/dimlet/releases/latest"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="download">Mac版をダウンロード</span></a><a class="button secondary" href="https://github.com/onodela2000/dimlet" data-i18n="source">ソースを見てみる ↗</a></div>
+    <p class="compat" data-i18n="compat">無料・オープンソース · macOS 13以降 · Apple Silicon / Intel</p>
+
+    <div class="demo" id="demo" data-blackout="false">
+      <div class="demo-top"><span class="demo-label" data-i18n="desk">いつものデスクを、少し静かに</span><span class="live-label"><i></i><span data-i18n="live">さわって試せるデモ</span></span></div>
+      <div class="scene" aria-hidden="true">
+        <span class="spark spark-one">✧</span><span class="spark spark-two">✦</span><span class="moon">☾</span>
+        <div class="monitor monitor-left"><div class="monitor-screen"><div class="wallpaper wallpaper-one"></div><div class="sleep-face"><span>⌣ &nbsp; ⌣</span><b>ᴗ</b></div></div><div class="monitor-chin"><i></i></div><div class="stand"></div><div class="foot"></div></div>
+        <div class="monitor monitor-right"><div class="monitor-screen"><div class="wallpaper wallpaper-two"></div><div class="sleep-face"><span>⌣ &nbsp; ⌣</span><b>ᴗ</b></div></div><div class="monitor-chin"><i></i></div><div class="stand"></div><div class="foot"></div></div>
+        <div class="laptop"><div class="laptop-screen"><div class="editor-bar"><i></i><i></i><i></i><span>still making things</span></div><div class="editor-body"><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><div class="working"><i></i>Mac at work</div></div></div><div class="laptop-base"></div></div>
+        <div class="desk-line"></div>
+      </div>
+      <div class="mode-picker" role="group" aria-label="Preview blackout mode"><button type="button" data-mode="externalOnly" aria-pressed="true" data-i18n="modeExternal">外部モニターだけ</button><button type="button" data-mode="allDisplays" aria-pressed="false" data-i18n="modeAll">すべてのモニター</button></div>
+      <div class="demo-control"><img src="../assets/icon.svg" alt="" width="45" height="45"><div><strong data-i18n="toggleTitle">モニターを暗くする</strong><span id="demo-status" data-off="画面は通常表示。スイッチを試してみて。" data-external="外部画面はひと休み。Macは作業中。" data-all="すべての画面はひと休み。Macは作業中。" aria-live="polite" data-i18n="statusOff">画面は通常表示。スイッチを試してみて。</span></div><button id="blackout-toggle" role="switch" aria-checked="false" aria-label="モニターを暗くする"><span></span></button></div>
+      <p class="demo-note" data-i18n="demoNote">これはプレビューです。実際の画面は変わりません。</p>
+    </div>
+  </section>
+
+  <section class="why wrap" id="why">
+    <p class="eyebrow" data-i18n="whyEyebrow">こんなときのために、作りました</p>
+    <h2 data-i18n="whyTitle">充電は続けたい。<br>画面の明かりはいらない。</h2>
+    <div class="pain-grid"><article><h3 data-i18n="pain1Title">「USB-Cで充電だけしたいのに」</h3><p data-i18n="pain1">MacBookをモニターにつなぐと、充電と一緒に映像も表示される。本体の電源を切ると、機種によってはUSB-C給電まで止まってしまいます。</p></article><article><h3 data-i18n="pain2Title">「画面は消したい。でも処理は止めたくない」</h3><p data-i18n="pain2">AIエージェント、動画の書き出し、長いビルド。画面を見ていない間も作業を続けたいので、Mac全体をスリープさせたくありません。</p></article></div>
+    <p class="solution" data-i18n="solution">Dimletは映像の接続を切らずに、画面を黒いウインドウで覆います。「外部モニターだけ」か「内蔵＋外部のすべて」を選べて、起動中はMacの自動スリープを防ぎます。</p><p class="honest-note" data-i18n="honest">充電だけが目的で、処理を続ける必要がなければ、モニターの待機中給電設定や別の充電器で足りることも。Dimletは「Macを動かしたまま、画面だけ暗くしたい」ときのためのアプリです。</p>
+    <aside class="reading"><strong data-i18n="readingTitle">MacにUSB-Cで充電だけしたいとき、どうする？</strong><a href="../ja/mac-usb-c-monitor-charging-screen-off/" data-i18n="readingLink">画面・スリープ・USB-C給電の違いを読む</a></aside>
+  </section>
+  <section class="benefits wrap" aria-label="Features">
+    <article><span class="feature-icon" aria-hidden="true">◐</span><h2 data-i18n="feature1Title">光を減らして、作業はそのまま。</h2><p data-i18n="feature1">AIエージェント、長いビルド、夜通しのレンダリング。作業を任せて、部屋を少し穏やかに。</p></article>
+    <article><span class="feature-icon" aria-hidden="true">⌁</span><h2 data-i18n="feature2Title">つながったまま。</h2><p data-i18n="feature2">モニターの電源と接続を保ち、USB-C給電の継続を助けます。内蔵画面を残すか、一緒に暗くするかも選べます。</p></article>
+    <article><span class="feature-icon" aria-hidden="true">♡</span><h2 data-i18n="feature3Title">必要なものだけ、小さく。</h2><p data-i18n="feature3">Swift製、5言語対応。アカウント、追跡、サブスク、追加の権限は不要です。</p></article>
+  </section>
+
+  <section class="how wrap" id="how">
+    <div class="section-heading"><p class="eyebrow" data-i18n="howEyebrow">すぐに、いつもの場所へ</p><h2 data-i18n="howTitle">小さなアプリで。<br>落ち着く作業空間に。</h2><a class="text-link" id="guide-link" href="https://github.com/onodela2000/dimlet/blob/main/README.ja.md"><span data-i18n="guide">導入ガイドを読む</span> <span aria-hidden="true">↗</span></a></div>
+    <ol class="steps"><li><span class="step-number">01</span><div><h3 data-i18n="step1Title">メニューバーに、おじゃまします。</h3><p data-i18n="step1">ZIPをダウンロードして展開し、Dimletをアプリケーションフォルダへ。起動すると、小さなモニターが現れます。</p></div></li><li><span class="step-number">02</span><div><h3 data-i18n="step2Title">画面に、ひと休みを。</h3><p data-i18n="step2">メニューで「外部モニターだけ暗くする」か「すべてのモニターを暗くする（内蔵＋外部）」を選びます。同じ項目をもう一度選ぶとOFFになります。</p></div></li><li><span class="step-number">03</span><div><h3 data-i18n="step3Title">戻るのは、いつでも。</h3><p data-i18n="step3">黒い画面をクリックすれば、すべて元どおり。アプリを終了するまで、Macの自動スリープ防止は続きます。</p></div></li></ol>
+  </section>
+
+  <section class="questions wrap" aria-labelledby="questions-title"><p class="eyebrow" data-i18n="faqEyebrow">知っておきたいこと</p><h2 id="questions-title" data-i18n="faqTitle">もう少しだけ、詳しく。</h2>
+    <details><summary data-i18n="q5">モニターを暗くしたまま、USB-C充電は続けられる？</summary><p data-i18n="a5">Dimletはモニターの電源と接続を保つので、機器の仕様が対応していればUSB-C給電を継続できます。映像信号を止めたり、パネルの電源を切ったりする機能ではありません。まずモニターの待機中給電設定を確認してください。</p></details>
+    <details><summary data-i18n="q1">モニターの電源を切るのですか？</summary><p data-i18n="a1">電源は切らず、選んだ画面を黒いウインドウで覆います。本体の電源はONにしてください。省電力やLCDのバックライト消灯は保証しません。USB-C給電の継続は機器の仕様にも依存します。</p></details>
+    <details><summary data-i18n="q2">MacBookのフタは閉じてもいい？</summary><p data-i18n="a2">フタは開けたまま使ってください。起動中の自動スリープを防ぎますが、フタを閉じたときや手動スリープ、電源OFF、バッテリー切れには対応しません。</p></details>
+    <details><summary data-i18n="q3">設定や権限は必要ですか？</summary><p data-i18n="a3">動作にアクセシビリティ・画面収録・管理者権限は不要です。現在はApple未公証のため、初回起動時に「システム設定 → プライバシーとセキュリティ → このまま開く」が必要な場合があります。詳細は導入ガイドをご覧ください。</p></details>
+    <details><summary data-i18n="q4">自分の環境でも使えますか？</summary><p data-i18n="a4">macOS 13以降に対応。「外部モニターだけ」ではミラーリング中の画面を除外し、「すべてのモニター」では内蔵画面も含めて暗くします。M4 MacBook Airで実機確認済み。Intelや以前のmacOSでは、さらなる検証を歓迎します。アプリは英語・日本語・簡体字中国語・フランス語・ドイツ語に対応しています。</p></details>
+  </section>
+  <section class="closing wrap"><img src="../assets/icon.svg" alt="Dimlet's sleepy monitor mascot" width="84" height="84"><h2 data-i18n="closing">光を、少し控えて。<br>作業は、心地よく。</h2><a class="button primary" href="https://github.com/onodela2000/dimlet/releases/latest" data-i18n="download">Mac版をダウンロード</a><span data-i18n="closingNote">使うのも、手を加えるのも、自由。</span></section>
+</main>
+<nav class="locale-links wrap" aria-label="Language"><a href=".././" lang="en" hreflang="en">English</a> <a href="../ja/" lang="ja" hreflang="ja" aria-current="page">日本語</a> <a href="../zh-hans/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a> <a href="../fr/" lang="fr" hreflang="fr">Français</a> <a href="../de/" lang="de" hreflang="de">Deutsch</a></nav>
+<footer class="wrap"><a class="brand" href="../ja/">Dimlet <span aria-hidden="true">✦</span></a><p data-i18n="footer">まだ続く作業の、そばに。</p><div><a href="https://github.com/onodela2000/dimlet">GitHub ↗</a><a href="https://github.com/onodela2000/dimlet/blob/main/LICENSE">MIT License</a></div></footer>
+</body>
+</html>
