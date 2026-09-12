@@ -1,8 +1,8 @@
 <p align="center"><img src="assets/hero.svg" alt="Dimlet — Screens rest. Your Mac keeps going." width="100%"></p>
 
 <p align="center">
-  <a href="https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip"><b>Download for macOS</b></a>
-  &nbsp; · &nbsp; <a href="https://onodela2000.github.io/dimlet/">Website</a>
+  <a href="https://github.com/osakanasoft/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip"><b>Download for macOS</b></a>
+  &nbsp; · &nbsp; <a href="https://osakanasoft.github.io/dimlet/">Website</a>
   &nbsp; · &nbsp; <a href="README.ja.md">日本語</a>
   &nbsp; · &nbsp; <a href="#build-it-yourself">Build from source</a>
 </p>
@@ -25,7 +25,7 @@ Developed and provided by **[Osakana Soft LLC](https://osakanasoft.com/)**. [Pri
 
 Requires **macOS 13 or later**. The universal release includes **Apple Silicon and Intel** binaries.
 
-1. Download **[Dimlet for Mac (.zip)](https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip)**. This single file supports both Apple Silicon and Intel; no other downloads are needed.
+1. Download **[Dimlet for Mac (.zip)](https://github.com/osakanasoft/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip)**. This single file supports both Apple Silicon and Intel; no other downloads are needed.
 2. Unzip it and drag **Dimlet.app** into **Applications**.
 3. Open Dimlet. Look for the little monitor in your **menu bar**. Blackout starts **OFF**.
 
@@ -71,7 +71,7 @@ The original setup was a MacBook Air M4 with two INNOCN GA32V1M monitors. That s
 You need Xcode Command Line Tools with **Swift 5.9 or later** (or full Xcode).
 
 ```bash
-git clone https://github.com/onodela2000/dimlet.git
+git clone https://github.com/osakanasoft/dimlet.git
 cd dimlet
 swift test
 ./scripts/build.sh
@@ -96,7 +96,7 @@ This briefly covers both external and built-in screens, checks both modes, click
 
 ## Website
 
-The [English landing page](https://onodela2000.github.io/dimlet/) and [Japanese page](https://onodela2000.github.io/dimlet/ja/) are complete static HTML, as are Chinese, French, and German. Search crawlers and visitors without JavaScript get the same readable content. The [Japanese USB-C charging guide](https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/) explains when Dimlet helps and when monitor settings or a separate charger may be enough.
+The [English landing page](https://osakanasoft.github.io/dimlet/) and [Japanese page](https://osakanasoft.github.io/dimlet/ja/) are complete static HTML, as are Chinese, French, and German. Search crawlers and visitors without JavaScript get the same readable content. The [Japanese USB-C charging guide](https://osakanasoft.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/) explains when Dimlet helps and when monitor settings or a separate charger may be enough.
 
 Edit `website/index.template.html`, `website/locales.json`, `website/charging-guide.html`, or `website/privacy.html`, then regenerate:
 
@@ -108,7 +108,7 @@ python3 -m http.server 8765 --directory site
 
 Open `http://localhost:8765`. Commit the generated `site/` HTML too. Shared CSS and demo JavaScript live in `site/`; the generator fingerprints those asset URLs to avoid stale caches. Python's standard library is the only build dependency. CI checks generated output, internal links, metadata, and structured data before deploying to GitHub Pages.
 
-Each language has its own URL, self-canonical, and reciprocal `hreflang` links. `site/sitemap.xml` lists the public pages. No automatic language redirect is used; the URL determines the language. For index monitoring, the owner can add the URL-prefix property `https://onodela2000.github.io/dimlet/` in Google Search Console and submit `sitemap.xml`. A sitemap does not guarantee indexing or rankings. A project-level `robots.txt` would not control the host root, so this repository does not add one.
+Each language has its own URL, self-canonical, and reciprocal `hreflang` links. `site/sitemap.xml` lists the public pages. No automatic language redirect is used; the URL determines the language. For index monitoring, the owner can add the URL-prefix property `https://osakanasoft.github.io/dimlet/` in Google Search Console and submit `sitemap.xml`. A sitemap does not guarantee indexing or rankings. A project-level `robots.txt` would not control the host root, so this repository does not add one.
 
 ## Contribute
 

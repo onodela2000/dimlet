@@ -4,7 +4,7 @@ Please report suspected vulnerabilities in Dimlet privately to **info@osakanasof
 
 Include the affected version, a description, and reproduction steps if available. Do not send live credentials or other people's personal information. Please avoid public Issues for details of an unaddressed vulnerability. This small project does not promise a response deadline or a bug bounty.
 
-For ordinary bugs and feature requests, use [GitHub Issues](https://github.com/onodela2000/dimlet/issues). Remove serial numbers and private information before posting logs or screenshots.
+For ordinary bugs and feature requests, use [GitHub Issues](https://github.com/osakanasoft/dimlet/issues). Remove serial numbers and private information before posting logs or screenshots.
 
 Dimletの脆弱性が疑われる場合は、**info@osakanasoft.com**へ非公開でご連絡ください。対象バージョン、内容、可能であれば再現手順を添えてください。有効な認証情報や他人の個人情報は不要です。未対応の脆弱性の詳細は、公開Issueへの記載をお控えください。回答期限や報奨金は設けていません。
 

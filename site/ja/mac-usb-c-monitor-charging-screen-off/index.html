@@ -9,12 +9,12 @@
   <meta property="og:title" content="MacにUSB-Cモニターで充電だけしたい｜画面を消すと給電が止まるときの対処">
   <meta property="og:description" content="MacBookをUSB-Cで充電だけしたいのに画面がつく、モニターをOFFにすると充電が止まる。待機中給電、macOSのスリープ設定、画面だけ暗くする方法の違いを解説します。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/">
-  <meta property="og:image" content="https://onodela2000.github.io/dimlet/assets/social.png">
+  <meta property="og:url" content="https://osakanasoft.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/">
+  <meta property="og:image" content="https://osakanasoft.github.io/dimlet/assets/social.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/">
+  <link rel="canonical" href="https://osakanasoft.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/">
   <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "MacにUSB-Cモニターで充電だけしたい｜画面を消すと給電が止まるときの対処", "description": "MacBookをUSB-Cで充電だけしたいのに画面がつく、モニターをOFFにすると充電が止まる。待機中給電、macOSのスリープ設定、画面だけ暗くする方法の違いを解説します。", "inLanguage": "ja", "mainEntityOfPage": "https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/", "datePublished": "2026-09-13", "dateModified": "2026-09-13", "author": {"@type": "Organization", "name": "Osakana Soft LLC", "legalName": "合同会社おさかなソフト", "url": "https://osakanasoft.com/"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "MacにUSB-Cモニターで充電だけしたい｜画面を消すと給電が止まるときの対処", "description": "MacBookをUSB-Cで充電だけしたいのに画面がつく、モニターをOFFにすると充電が止まる。待機中給電、macOSのスリープ設定、画面だけ暗くする方法の違いを解説します。", "inLanguage": "ja", "mainEntityOfPage": "https://osakanasoft.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/", "datePublished": "2026-09-13", "dateModified": "2026-09-13", "author": {"@type": "Organization", "name": "Osakana Soft LLC", "legalName": "合同会社おさかなソフト", "url": "https://osakanasoft.com/"}}</script>
   <link rel="icon" type="image/svg+xml" href="../../assets/icon.svg">
   <link rel="stylesheet" href="../../style.css?v=ff7a2ff2e688">
   <script src="../../app.js?v=02ac9027086e" defer></script>
@@ -25,7 +25,7 @@
   <a class="brand" href="../../ja/" aria-label="Dimlet home"><img src="../../assets/icon.svg" alt="" width="38" height="38">Dimlet<span class="version">v0.3</span></a>
   <nav aria-label="Main navigation">
     <a class="nav-how" href="../#how" data-i18n="navHow">使い方</a>
-    <a href="https://github.com/onodela2000/dimlet">GitHub <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/osakanasoft/dimlet">GitHub <span aria-hidden="true">↗</span></a>
     <label class="language"><span class="sr-only">Language</span><select id="language" aria-label="Language"><option value="en" data-url="../.././">English</option><option value="ja" data-url="../../ja/" selected>日本語</option><option value="zh-Hans" data-url="../../zh-hans/">简体中文</option><option value="fr" data-url="../../fr/">Français</option><option value="de" data-url="../../de/">Deutsch</option></select></label>
   </nav>
 </header>
@@ -46,8 +46,8 @@
 <p>ただし、Macの自動スリープを防ぐ設定だけで、モニター本体の電源OFF時の給電仕様まで変えられるわけではありません。DimletはモニターをON・接続状態のまま保ち、画面に黒いウインドウを表示する方法を取ります。外部だけ暗くするか、内蔵画面も一緒に暗くするかをメニューで選べます。</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="画面を暗くする方法の比較"><table><thead><tr><th scope="col">方法</th><th scope="col">画面</th><th scope="col">Macの処理</th><th scope="col">USB-C給電</th></tr></thead><tbody><tr><th scope="row">モニター本体をOFF</th><td>消灯</td><td>Macの設定や状態次第</td><td>停止する機種がある</td></tr><tr><th scope="row">Macをスリープ</th><td>通常は消灯・待機</td><td>通常の作業継続には不向き</td><td>モニターの待機中給電仕様次第</td></tr><tr><th scope="row">macOSのスリープ設定</th><td>表示のOFFを別途設定</td><td>対応する設定で自動スリープを防止</td><td>モニターの状態・仕様次第</td></tr><tr><th scope="row">Dimlet</th><td>接続を保って黒表示</td><td>起動中の自動スリープを防止</td><td>電源を切らないため継続可能。機器の仕様次第</td></tr></tbody></table></div>
 <h2>Dimletで外部モニターだけ、またはすべての画面を暗くする</h2>
-<ol><li><a href="https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip">Dimletをダウンロード</a>し、ZIPを展開してアプリケーションフォルダへ移動します。</li><li>起動後、メニューバーのモニターアイコンをクリックします。</li><li><strong>「外部モニターだけ暗くする」</strong>、または<strong>「すべてのモニターを暗くする（内蔵＋外部）」</strong>を選びます。</li><li>戻すときは黒い画面のどこかをクリック。同じメニュー項目をもう一度選んでもOFFになります。</li></ol>
-<p>アプリは英語が初期設定です。「Language」から日本語に切り替えられます。黒表示をOFFにしても、自動スリープ防止はアプリの終了まで続きます。初回起動時の案内は<a href="https://github.com/onodela2000/dimlet/blob/main/README.ja.md">導入ガイド</a>にまとめています。</p>
+<ol><li><a href="https://github.com/osakanasoft/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip">Dimletをダウンロード</a>し、ZIPを展開してアプリケーションフォルダへ移動します。</li><li>起動後、メニューバーのモニターアイコンをクリックします。</li><li><strong>「外部モニターだけ暗くする」</strong>、または<strong>「すべてのモニターを暗くする（内蔵＋外部）」</strong>を選びます。</li><li>戻すときは黒い画面のどこかをクリック。同じメニュー項目をもう一度選んでもOFFになります。</li></ol>
+<p>アプリは英語が初期設定です。「Language」から日本語に切り替えられます。黒表示をOFFにしても、自動スリープ防止はアプリの終了まで続きます。初回起動時の案内は<a href="https://github.com/osakanasoft/dimlet/blob/main/README.ja.md">導入ガイド</a>にまとめています。</p>
 <h2>バックライトを完全に消せる？ フタは閉じていい？</h2>
 <p>Dimletは黒い表示で覆うアプリです。LCDのバックライト消灯や省電力を保証するものではありません。映像接続は残るので、画面を切断した扱いにはなりません。黒表示は画面ロックでもありません。</p>
 <p>MacBookはフタを開けたまま使ってください。フタを閉じたときのスリープ、手動スリープ、電源OFF、バッテリー切れは防ぎません。AIアプリやネットワークそのものの停止を防ぐ機能もありません。</p>
@@ -56,6 +56,6 @@
 </main>
 
 <nav class="locale-links wrap" aria-label="Language"><a href="../.././" lang="en" hreflang="en">English</a> <a href="../../ja/" lang="ja" hreflang="ja" aria-current="page">日本語</a> <a href="../../zh-hans/" lang="zh-Hans" hreflang="zh-Hans">简体中文</a> <a href="../../fr/" lang="fr" hreflang="fr">Français</a> <a href="../../de/" lang="de" hreflang="de">Deutsch</a></nav>
-<footer class="wrap"><a class="brand" href="../../ja/">Dimlet <span aria-hidden="true">✦</span></a><p><a href="https://osakanasoft.com/" data-i18n="company">開発・提供：合同会社おさかなソフト</a></p><div><a href="https://github.com/onodela2000/dimlet">GitHub ↗</a><a href="https://github.com/onodela2000/dimlet/blob/main/LICENSE">MIT License</a><a href="../../privacy/#japanese" data-i18n="privacy">プライバシー</a></div></footer>
+<footer class="wrap"><a class="brand" href="../../ja/">Dimlet <span aria-hidden="true">✦</span></a><p><a href="https://osakanasoft.com/" data-i18n="company">開発・提供：合同会社おさかなソフト</a></p><div><a href="https://github.com/osakanasoft/dimlet">GitHub ↗</a><a href="https://github.com/osakanasoft/dimlet/blob/main/LICENSE">MIT License</a><a href="../../privacy/#japanese" data-i18n="privacy">プライバシー</a></div></footer>
 </body>
 </html>

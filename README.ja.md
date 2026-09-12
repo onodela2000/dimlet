@@ -1,8 +1,8 @@
 <p align="center"><img src="assets/hero.svg" alt="Dimlet — 画面は静かに。Macは、そのまま。" width="100%"></p>
 
 <p align="center">
-  <a href="https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip"><b>macOS版をダウンロード</b></a>
-  &nbsp; · &nbsp; <a href="https://onodela2000.github.io/dimlet/">公式サイト</a>
+  <a href="https://github.com/osakanasoft/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip"><b>macOS版をダウンロード</b></a>
+  &nbsp; · &nbsp; <a href="https://osakanasoft.github.io/dimlet/">公式サイト</a>
   &nbsp; · &nbsp; <a href="README.md">English</a>
 </p>
 
@@ -24,7 +24,7 @@ Dimletは、外部モニターだけ、または内蔵画面も含めたすべ�
 
 **macOS 13以降**が必要です。配布版はApple Silicon／Intel両対応のUniversalアプリです。
 
-1. **[Mac版アプリ（ZIP）をダウンロード](https://github.com/onodela2000/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip)**。Mシリーズ／Intel共通のファイルです。ダウンロードはこれ1つで完了です。
+1. **[Mac版アプリ（ZIP）をダウンロード](https://github.com/osakanasoft/dimlet/releases/download/v0.3.0/Dimlet-0.3.0-macos-universal.zip)**。Mシリーズ／Intel共通のファイルです。ダウンロードはこれ1つで完了です。
 2. ZIPを展開し、**Dimlet.app**を**アプリケーション**フォルダへ移動。
 3. Dimletを開くと、メニューバーに小さなモニターが表示されます。初期状態は**OFF**です。
 
@@ -74,7 +74,7 @@ MacBook Air M4＋INNOCN GA32V1Mの構成で、黒表示中も充電が続くこ�
 Swift 5.9以降を含むXcode Command Line Tools、またはXcodeが必要です。
 
 ```bash
-git clone https://github.com/onodela2000/dimlet.git
+git clone https://github.com/osakanasoft/dimlet.git
 cd dimlet
 swift test
 ./scripts/build.sh
@@ -87,11 +87,11 @@ Universal版は`./scripts/build.sh --universal`でビルドします。`dist/`�
 
 ## 公式サイトの更新
 
-[日本語LP](https://onodela2000.github.io/dimlet/ja/)と[USB-C充電の解説](https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/)を公開しています。5言語それぞれにURLがあり、JavaScriptを実行しなくても本文を読めます。
+[日本語LP](https://osakanasoft.github.io/dimlet/ja/)と[USB-C充電の解説](https://osakanasoft.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/)を公開しています。5言語それぞれにURLがあり、JavaScriptを実行しなくても本文を読めます。
 
 編集元は`website/index.template.html`、`website/locales.json`、`website/charging-guide.html`、`website/privacy.html`です。編集後に`python3 scripts/build_site.py`で生成し、`python3 scripts/build_site.py --check`でリンク・メタ情報・生成物を確認します。生成した`site/`もコミットしてください。プレビューは`python3 -m http.server 8765 --directory site`で起動できます。CSSとデモのJavaScriptは`site/`にあり、変更後も再生成してください。`main`へ反映するとGitHub Pagesに自動公開されます。
 
-各言語のcanonical・hreflangと`sitemap.xml`を生成します。検索掲載の確認には、所有者のGoogle Search ConsoleでURLプレフィックス`https://onodela2000.github.io/dimlet/`を登録し、`sitemap.xml`を送信できます。サイトマップは掲載や順位を保証するものではありません。
+各言語のcanonical・hreflangと`sitemap.xml`を生成します。検索掲載の確認には、所有者のGoogle Search ConsoleでURLプレフィックス`https://osakanasoft.github.io/dimlet/`を登録し、`sitemap.xml`を送信できます。サイトマップは掲載や順位を保証するものではありません。
 
 ## コントリビュート
 
