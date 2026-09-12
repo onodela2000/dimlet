@@ -19,6 +19,8 @@ Running an AI agent, rendering a video, or waiting on a long build? Give your ro
 
 > Dimlet covers screens with black windows. It does **not** turn off the panel or guarantee power savings. Keep your monitors' physical power switches on. USB-C charging still depends on the monitor, cable, and power supply.
 
+Developed and provided by **[Osakana Soft LLC](https://osakanasoft.com/)**. [Privacy](PRIVACY.md) · [Report a security issue](SECURITY.md)
+
 ## Install
 
 Requires **macOS 13 or later**. The universal release includes **Apple Silicon and Intel** binaries.
@@ -96,7 +98,7 @@ This briefly covers both external and built-in screens, checks both modes, click
 
 The [English landing page](https://onodela2000.github.io/dimlet/) and [Japanese page](https://onodela2000.github.io/dimlet/ja/) are complete static HTML, as are Chinese, French, and German. Search crawlers and visitors without JavaScript get the same readable content. The [Japanese USB-C charging guide](https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/) explains when Dimlet helps and when monitor settings or a separate charger may be enough.
 
-Edit `website/index.template.html`, `website/locales.json`, or `website/charging-guide.html`, then regenerate:
+Edit `website/index.template.html`, `website/locales.json`, `website/charging-guide.html`, or `website/privacy.html`, then regenerate:
 
 ```bash
 python3 scripts/build_site.py

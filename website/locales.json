@@ -56,7 +56,9 @@
     "readingTitle": "USB-C charging and a dark screen: what to check",
     "readingLink": "Read the Mac display and charging guide (Japanese)",
     "q5": "Can I keep USB-C charging while the monitor looks off?",
-    "a5": "Dimlet keeps the monitor powered and connected, so USB-C charging can continue if your hardware supports it. It makes the picture black; it does not disable the display signal or turn off the panel. Check your monitor’s power and standby charging settings first."
+    "a5": "Dimlet keeps the monitor powered and connected, so USB-C charging can continue if your hardware supports it. It makes the picture black; it does not disable the display signal or turn off the panel. Check your monitor’s power and standby charging settings first.",
+    "company": "A project by Osakana Soft LLC",
+    "privacy": "Privacy"
   },
   "ja": {
     "navHow": "使い方",
@@ -115,7 +117,9 @@
     "readingTitle": "MacにUSB-Cで充電だけしたいとき、どうする？",
     "readingLink": "画面・スリープ・USB-C給電の違いを読む",
     "q5": "モニターを暗くしたまま、USB-C充電は続けられる？",
-    "a5": "Dimletはモニターの電源と接続を保つので、機器の仕様が対応していればUSB-C給電を継続できます。映像信号を止めたり、パネルの電源を切ったりする機能ではありません。まずモニターの待機中給電設定を確認してください。"
+    "a5": "Dimletはモニターの電源と接続を保つので、機器の仕様が対応していればUSB-C給電を継続できます。映像信号を止めたり、パネルの電源を切ったりする機能ではありません。まずモニターの待機中給電設定を確認してください。",
+    "company": "開発・提供：合同会社おさかなソフト",
+    "privacy": "プライバシー"
   },
   "zh-Hans": {
     "navHow": "使用方法",
@@ -174,7 +178,9 @@
     "readingTitle": "USB-C 充电与黑屏：需要确认什么",
     "readingLink": "阅读 Mac 显示与充电指南（日语）",
     "q5": "屏幕变暗后，还能继续 USB-C 充电吗？",
-    "a5": "Dimlet 保持显示器通电和连接，硬件支持时可以继续充电。它用黑色覆盖画面，不会关闭视频信号或面板电源。请先检查显示器的待机充电设置。"
+    "a5": "Dimlet 保持显示器通电和连接，硬件支持时可以继续充电。它用黑色覆盖画面，不会关闭视频信号或面板电源。请先检查显示器的待机充电设置。",
+    "company": "由 Osakana Soft LLC 开发与提供",
+    "privacy": "隐私"
   },
   "fr": {
     "navHow": "Mode d’emploi",
@@ -233,7 +239,9 @@
     "readingTitle": "Charge USB-C et écran sombre : que vérifier ?",
     "readingLink": "Lire le guide Mac, écrans et charge (en japonais)",
     "q5": "La charge USB-C peut-elle continuer avec un écran sombre ?",
-    "a5": "Dimlet garde le moniteur alimenté et connecté : la charge peut continuer si le matériel le permet. L’image est recouverte de noir, mais le signal vidéo et la dalle restent actifs. Vérifiez d’abord les réglages de charge en veille."
+    "a5": "Dimlet garde le moniteur alimenté et connecté : la charge peut continuer si le matériel le permet. L’image est recouverte de noir, mais le signal vidéo et la dalle restent actifs. Vérifiez d’abord les réglages de charge en veille.",
+    "company": "Un projet d’Osakana Soft LLC",
+    "privacy": "Confidentialité"
   },
   "de": {
     "navHow": "So funktioniert’s",
@@ -292,6 +300,8 @@
     "readingTitle": "USB-C-Laden bei dunklem Bildschirm: Was prüfen?",
     "readingLink": "Mac-Anleitung zu Bildschirmen und Laden lesen (Japanisch)",
     "q5": "Kann USB-C-Laden bei dunklem Bildschirm weitergehen?",
-    "a5": "Dimlet hält den Monitor eingeschaltet und verbunden. Laden bleibt möglich, wenn die Hardware es unterstützt. Das Bild wird schwarz verdeckt; Videosignal und Panel werden nicht ausgeschaltet. Prüfe zuerst die Standby-Ladeeinstellungen."
+    "a5": "Dimlet hält den Monitor eingeschaltet und verbunden. Laden bleibt möglich, wenn die Hardware es unterstützt. Das Bild wird schwarz verdeckt; Videosignal und Panel werden nicht ausgeschaltet. Prüfe zuerst die Standby-Ladeeinstellungen.",
+    "company": "Ein Projekt von Osakana Soft LLC",
+    "privacy": "Datenschutz"
   }
 }
