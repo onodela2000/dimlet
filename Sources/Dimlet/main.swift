@@ -16,8 +16,8 @@ final class BlackPanel: NSPanel {
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var panels: [NSPanel] = []
     private var statusItem: NSStatusItem!
-    private var toggleItem: NSMenuItem!
-    private var displayCountItem: NSMenuItem!
+    private var modeItems: [BlackoutMode: NSMenuItem] = [:]
+    private var mode = BlackoutMode.load()
     private var awakeItem: NSMenuItem!
     private var language = AppLanguage.load()
     private var languageItem: NSMenuItem!
@@ -35,14 +35,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         awakeIcon = loadIcon("menubar-off")
         sleepyIcon = loadIcon("menubar-on")
         let menu = NSMenu()
-        toggleItem = NSMenuItem(
-            title: language.text(.toggle),
-            action: #selector(toggle), keyEquivalent: ""
-        )
-        toggleItem.target = self
-        menu.addItem(toggleItem)
-        displayCountItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
-        menu.addItem(displayCountItem)
+        for choice in BlackoutMode.allCases {
+            let item = NSMenuItem(title: "", action: #selector(selectMode(_:)), keyEquivalent: "")
+            item.target = self
+            item.representedObject = choice.rawValue
+            menu.addItem(item)
+            modeItems[choice] = item
+        }
         menu.addItem(.separator())
         awakeItem = NSMenuItem(title: "", action: nil, keyEquivalent: "")
         menu.addItem(awakeItem)
@@ -85,7 +84,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func refreshLanguage() {
-        toggleItem.title = language.text(.toggle)
+        modeItems[.externalOnly]?.title = language.text(.externalOnly)
+        modeItems[.allDisplays]?.title = language.text(.allDisplays)
         // Keep "Language" recognizable if someone chooses an unfamiliar language.
         languageItem.title = language == .english ? "Language" : "\(language.text(.language)) / Language"
         languageItem.submenu?.title = languageItem.title
@@ -96,7 +96,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         quitItem.title = language.text(.quit)
         awakeItem.title = language.text(macAssertion?.isRunning == true ? .awake : .awakeFailed)
         refreshStatusLabel()
-        refreshDisplayCount()
         // Only text changes: keep overlays and sleep assertions alive without flicker.
         panels.forEach { $0.contentView?.setAccessibilityLabel(language.text(.reveal)) }
     }
@@ -105,13 +104,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let label = language.text(enabled ? .blackoutOn : .blackoutOff)
         statusItem.button?.toolTip = label
         statusItem.button?.setAccessibilityLabel(label)
-    }
-
-    private func refreshDisplayCount() {
-        let screens = screensAndDescriptors().map { $0.1 }
-        displayCountItem.title = screens.contains { $0.isMirrored }
-            ? language.text(.mirrored)
-            : language.displayCount(DisplayPolicy.targets(in: screens, enabled: true).count)
     }
 
     private func loadIcon(_ name: String) -> NSImage? {
@@ -135,11 +127,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if let process = process, process.isRunning { process.terminate() }
     }
 
-    @objc private func toggle() { setBlackout(!enabled) }
+    @objc private func selectMode(_ sender: NSMenuItem) {
+        guard let rawValue = sender.representedObject as? String,
+              let selected = BlackoutMode(rawValue: rawValue) else { return }
+        activateMode(selected)
+    }
+
+    private func activateMode(_ selected: BlackoutMode, persist: Bool = true) {
+        let turnOff = enabled && mode == selected
+        mode = selected
+        if persist { mode.save() }
+        setBlackout(!turnOff)
+    }
 
     private func setBlackout(_ value: Bool) {
         enabled = value
-        toggleItem.state = value ? .on : .off
+        for (choice, item) in modeItems { item.state = value && choice == mode ? .on : .off }
         let fallback = NSImage(systemSymbolName: value ? "moon.fill" : "display", accessibilityDescription: "Dimlet")
         statusItem.button?.image = (value ? sleepyIcon : awakeIcon) ?? fallback
         refreshStatusLabel()
@@ -164,8 +167,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         panels.forEach { $0.close() }
         panels.removeAll()
         let screens = screensAndDescriptors()
-        refreshDisplayCount()
-        let ids = Set(DisplayPolicy.targets(in: screens.map { $0.1 }, enabled: enabled))
+        let ids = Set(DisplayPolicy.targets(in: screens.map { $0.1 }, enabled: enabled, mode: mode))
         for (screen, descriptor) in screens where ids.contains(descriptor.id) {
             let panel = BlackPanel(contentRect: screen.frame, styleMask: [.borderless, .nonactivatingPanel], backing: .buffered, defer: false)
             panel.isReleasedWhenClosed = false
@@ -198,41 +200,53 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func smokeTest() {
-        // Runs against the current screens, then restores them before exiting.
+        // Exercise both modes without changing saved preferences, then restore screens.
         precondition(awakeIcon != nil && sleepyIcon != nil, "Bundled SVG icons must load")
         precondition(macAssertion?.isRunning == true, "Mac idle-sleep assertion must exist")
-        setBlackout(true)
-        let screens = screensAndDescriptors()
-        let expected = DisplayPolicy.targets(in: screens.map { $0.1 }, enabled: true)
-        precondition(panels.count == expected.count, "Every eligible external display needs an overlay")
-        precondition(toggleItem.state == .on && displayAssertion?.isRunning == true)
-        for (screen, descriptor) in screens where descriptor.isBuiltIn {
-            precondition(!panels.contains { $0.frame == screen.frame }, "The built-in display must never be covered")
-        }
-        let assertionPID = displayAssertion?.processIdentifier
-        setBlackout(true)
-        precondition(displayAssertion?.processIdentifier == assertionPID, "Repeated ON must not leak assertions")
         let originalLanguage = language
-        let originalPanels = panels.map(ObjectIdentifier.init)
+        let originalMode = mode
         let macPID = macAssertion?.processIdentifier
-        for choice in AppLanguage.allCases {
-            language = choice
-            refreshLanguage()
-            precondition(toggleItem.title == choice.text(.toggle))
-            precondition(aboutItem.title == choice.text(.about) && quitItem.title == choice.text(.quit))
-            precondition(languageChoices.filter { $0.state == .on }.count == 1)
-            precondition(languageChoices.first { $0.state == .on }?.representedObject as? String == choice.rawValue)
-            precondition(statusItem.button?.toolTip == choice.text(.blackoutOn))
-            precondition(panels.map(ObjectIdentifier.init) == originalPanels, "Language changes must preserve overlays")
-            precondition(displayAssertion?.processIdentifier == assertionPID && macAssertion?.processIdentifier == macPID)
-            precondition(enabled && toggleItem.state == .on)
+        var assertionPID: Int32?
+        for choice in BlackoutMode.allCases {
+            activateMode(choice, persist: false)
+            let screens = screensAndDescriptors()
+            let expected = DisplayPolicy.targets(in: screens.map { $0.1 }, enabled: true, mode: choice)
+            precondition(panels.count == expected.count, "Every target needs an overlay")
+            precondition(modeItems[choice]?.state == .on && displayAssertion?.isRunning == true)
+            precondition(modeItems.values.filter { $0.state == .on }.count == 1)
+            if let priorPID = assertionPID {
+                precondition(displayAssertion?.processIdentifier == priorPID, "Switching modes preserves sleep prevention")
+            }
+            assertionPID = displayAssertion?.processIdentifier
+            for (screen, descriptor) in screens where descriptor.isBuiltIn {
+                precondition(panels.contains { $0.frame == screen.frame } == (choice == .allDisplays))
+            }
+            let originalPanels = panels.map(ObjectIdentifier.init)
+            for translation in AppLanguage.allCases {
+                language = translation
+                refreshLanguage()
+                precondition(modeItems[.externalOnly]?.title == translation.text(.externalOnly))
+                precondition(modeItems[.allDisplays]?.title == translation.text(.allDisplays))
+                precondition(languageChoices.filter { $0.state == .on }.count == 1)
+                precondition(statusItem.button?.toolTip == translation.text(.blackoutOn))
+                precondition(panels.map(ObjectIdentifier.init) == originalPanels)
+                precondition(displayAssertion?.processIdentifier == assertionPID && macAssertion?.processIdentifier == macPID)
+            }
         }
+        // The same click handler is installed on every black screen, including the built-in one.
+        if let view = panels.first?.contentView as? BlackView { view.reveal?() }
+        else { setBlackout(false) }
+        precondition(!enabled && panels.isEmpty && displayAssertion == nil)
+        precondition(modeItems.values.allSatisfy { $0.state == .off })
+        precondition(macAssertion?.isRunning == true, "OFF keeps the Mac awake while resident")
+        activateMode(.externalOnly, persist: false)
+        precondition(enabled)
+        activateMode(.externalOnly, persist: false)
+        precondition(!enabled && panels.isEmpty && displayAssertion == nil, "Choosing the active mode turns it off")
+        mode = originalMode
         language = originalLanguage
         refreshLanguage()
-        toggle()
-        precondition(!enabled && panels.isEmpty && toggleItem.state == .off && displayAssertion == nil)
-        precondition(macAssertion?.isRunning == true, "OFF keeps the Mac awake while resident")
-        print("PASS: SVG icons, external-only coverage (\(expected.count) displays), ON/OFF, assertion ownership, five live languages")
+        print("PASS: both blackout modes, built-in coverage, click-to-restore, five languages, assertion ownership")
         NSApp.terminate(nil)
     }
 

@@ -27,17 +27,10 @@ final class LocalizationTests: XCTestCase {
             for key in TextKey.allCases {
                 XCTAssertFalse(language.text(key).trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
-            for count in [0, 1, 2, 10] {
-                let label = language.displayCount(count)
-                XCTAssertTrue(label.contains(String(count)), "Missing count in \(language)")
-                XCTAssertFalse(label.contains("{"), "Unresolved placeholder in \(language)")
-            }
             XCTAssertTrue(language.about(version: "9.8.7").contains("9.8.7"))
             XCTAssertFalse(language.about(version: "9.8.7").contains("{"))
             XCTAssertNotEqual(language.text(.blackoutOn), language.text(.blackoutOff))
         }
         XCTAssertEqual(Set(AppLanguage.allCases.map(\.nativeName)).count, 5)
-        XCTAssertEqual(AppLanguage.english.displayCount(1), "1 external display · built-in untouched")
-        XCTAssertEqual(AppLanguage.english.displayCount(2), "2 external displays · built-in untouched")
     }
 }

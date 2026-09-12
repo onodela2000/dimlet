@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 — 2026-09-13
+
+- Replace the display-count row with two direct menu actions: external monitors only, or all monitors including the built-in display.
+- Select the active action again to turn blackout off; switch directly between modes.
+- Remember the selected mode while keeping normal launches OFF.
+- Restore every covered screen with a click, including the built-in display.
+- Update all five languages, the website demo, and installation guides for both modes.
+
 ## 0.2.0 — 2026-09-12
 
 - Add a Language submenu with English, Japanese, Simplified Chinese, French, and German.

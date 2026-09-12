@@ -905,3 +905,13 @@ html[lang=fr] .demo-control,html[lang=de] .demo-control {
   width:min(520px,100%)
 }
 
+
+/* Choose a preview scope without touching the visitor's real screens. */
+.mode-picker { display:flex; justify-content:center; gap:5px; margin:24px auto 0; flex-wrap:wrap; }
+.mode-picker button { border:1px solid #d8cfe2; background:transparent; color:#685977; border-radius:8px; padding:8px 12px; font-size:11px; cursor:pointer; }
+.mode-picker button[aria-pressed=true] { background:#fcfaff; color:#302c40; border-color:#a594b9; }
+.mode-picker + .demo-control { margin-top:12px; }
+.laptop-screen { position:relative; }
+.laptop-screen:after { content:""; position:absolute; inset:0; background:#24212f; opacity:0; transition:opacity .7s; pointer-events:none; }
+.demo[data-blackout=true][data-mode=allDisplays] .laptop-screen:after { opacity:1; }
+@media(max-width:700px) { .mode-picker button { font-size:10px; padding:7px 9px; } }

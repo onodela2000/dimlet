@@ -13,20 +13,58 @@ const translations = {
     navHow:'So funktioniert’s',eyebrow:'EIN BISSCHEN MAGIE FÜR DIE MAC-MENÜLEISTE',headline1:'Die Bildschirme ruhen.',headline2:'Dein Mac macht weiter.',intro:'Der Raum wird ruhiger, die Arbeit geht weiter. Dimlet verdeckt externe Bildschirme mit schwarzen Fenstern und verhindert den automatischen Ruhezustand.',download:'Für Mac herunterladen',source:'Zum Quellcode ↗',compat:'Kostenlos und Open Source · macOS 13+ · Apple Silicon und Intel',desk:'DEIN SCHREIBTISCH, EIN WENIG RUHIGER',live:'Interaktive Vorschau',toggleTitle:'Externe Bildschirme abdunkeln',statusOff:'Die Bildschirme sind an. Probier den Schalter aus.',statusOn:'Die Bildschirme ruhen. Der Mac arbeitet.',demoNote:'Nur eine Vorschau. Deine echten Bildschirme bleiben unverändert.',feature1Title:'Weniger Licht. Gleicher Schwung.',feature1:'KI-Agenten, lange Builds, nächtliche Renderjobs. Lass sie weiterlaufen, während der Raum etwas ruhiger wird.',feature2Title:'Verbunden bleiben.',feature2:'Monitore bleiben eingeschaltet und verbunden, damit USB-C-Laden weiter möglich ist. Das interne Display bleibt nutzbar.',feature3Title:'Klein, wo es zählt.',feature3:'Natives Swift. Fünf Sprachen. Kein Konto, Tracking, Abo oder zusätzliche Berechtigungen.',howEyebrow:'IN WENIGEN AUGENBLICKEN BEREIT',howTitle:'Eine kleine App.\nEin ruhigerer Arbeitsplatz.',guide:'Installationsanleitung lesen',step1Title:'Mach ein bisschen Platz.',step1:'Lade die ZIP-Datei herunter, entpacke sie und verschiebe Dimlet nach Programme. Öffne die App und begrüße deinen kleinen Freund in der Menüleiste.',step2Title:'Gönn den Bildschirmen eine Pause.',step2:'Klicke auf den kleinen Monitor in der Menüleiste und aktiviere die Abdunklung. Alle unabhängigen externen Bildschirme werden schwarz.',step3Title:'Komm jederzeit zurück.',step3:'Klicke auf einen schwarzen Bildschirm, um alle wieder einzublenden. Dimlet hält deinen Mac wach, bis du die App beendest.',faqEyebrow:'DIE KLEINEN DETAILS',faqTitle:'Gut zu wissen.',q1:'Werden die Monitore wirklich ausgeschaltet?',a1:'Nein. Dimlet verdeckt externe Bildschirme mit schwarzen Fenstern. Lass die Monitore eingeschaltet. Energieeinsparungen oder eine vollständig dunkle LCD-Hintergrundbeleuchtung sind nicht garantiert. USB-C-Laden hängt von deiner Hardware ab.',q2:'Kann ich mein MacBook zuklappen?',a2:'Lass den Deckel offen. Dimlet verhindert während der Laufzeit den automatischen Ruhezustand, aber nicht den Ruhezustand beim Zuklappen, manuell ausgelösten Ruhezustand, das Ausschalten oder einen leeren Akku.',q3:'Sind Einstellungen oder Berechtigungen nötig?',a3:'Zum Ausführen sind keine Bedienungshilfen-, Bildschirmaufnahme- oder Administratorrechte nötig. Die aktuelle Version ist nicht von Apple notarisiert. Beim ersten Start kann Systemeinstellungen → Datenschutz & Sicherheit → Dennoch öffnen erforderlich sein. Details stehen in der Installationsanleitung.',q4:'Funktioniert es mit meinem Setup?',a4:'Dimlet unterstützt macOS 13+ mit unabhängigen, erweiterten Bildschirmen. Gespiegelte Displays werden ausgelassen. Getestet auf einem M4 MacBook Air; Intel-Macs und ältere macOS-Versionen benötigen noch breitere Praxistests. Die App unterstützt Englisch, Japanisch, vereinfachtes Chinesisch, Französisch und Deutsch.',closing:'Ein bisschen weniger Licht.\nEin bisschen mehr Ruhe.',closingNote:'Frei zum Nutzen. Frei zum Verändern.',footer:'Für die Arbeit, die weitergeht.'
   }
 };
+// Mode-specific copy stays together across the five site languages.
+Object.assign(translations.ja, {
+  intro:'部屋の明かりを落としても、作業は続く。外部モニターだけ、または内蔵画面も含めて暗くし、Macの自動スリープを防ぎます。',
+  feature2:'モニターの電源と接続を保ち、USB-C給電の継続を助けます。内蔵画面を残すか、一緒に暗くするかも選べます。',
+  step2:'メニューで「外部モニターだけ暗くする」か「すべてのモニターを暗くする（内蔵＋外部）」を選びます。同じ項目をもう一度選ぶとOFFになります。',
+  a1:'電源は切らず、選んだ画面を黒いウインドウで覆います。本体の電源はONにしてください。省電力やLCDのバックライト消灯は保証しません。USB-C給電の継続は機器の仕様にも依存します。',
+  a4:'macOS 13以降に対応。「外部モニターだけ」ではミラーリング中の画面を除外し、「すべてのモニター」では内蔵画面も含めて暗くします。M4 MacBook Airで実機確認済み。Intelや以前のmacOSでは、さらなる検証を歓迎します。アプリは英語・日本語・簡体字中国語・フランス語・ドイツ語に対応しています。',
+  toggleTitle:'モニターを暗くする',modeExternal:'外部モニターだけ',modeAll:'すべてのモニター',statusAll:'すべての画面はひと休み。Macは作業中。'
+});
+Object.assign(translations['zh-Hans'], {
+  intro:'让房间安静下来，让工作继续。可选择仅调暗外接显示器，或包括内置屏幕在内的所有屏幕，同时防止 Mac 自动睡眠。',
+  feature2:'显示器保持通电和连接，让 USB-C 充电可以继续。内置屏幕可以保持显示，也可以一起调暗。',
+  step2:'在菜单中选择仅调暗外接显示器，或调暗所有显示器（内置及外接）。再次选择当前模式即可关闭黑屏。',
+  a1:'不会关闭电源。Dimlet 用黑色窗口覆盖所选屏幕。请保持显示器电源开启。它不保证节能或关闭 LCD 背光。USB-C 充电取决于硬件。',
+  a4:'支持 macOS 13 及以上。仅外接模式会跳过镜像屏幕；所有显示器模式也覆盖内置屏幕。已在 M4 MacBook Air 上测试，Intel 和较早版本仍需更多实机验证。支持英语、日语、简体中文、法语和德语。',
+  toggleTitle:'调暗显示器',modeExternal:'仅外接显示器',modeAll:'所有显示器',statusAll:'所有屏幕休息了，Mac 仍在工作。'
+});
+Object.assign(translations.fr, {
+  intro:'La pièce s’apaise, le travail avance. Assombrissez les écrans externes ou tous les écrans, tout en gardant le Mac éveillé.',
+  feature2:'Les moniteurs restent alimentés et connectés pour permettre la charge USB-C. Gardez l’écran intégré visible ou assombrissez-le aussi.',
+  step2:'Dans le menu, choisissez les écrans externes uniquement ou tous les écrans, intégré compris. Sélectionnez à nouveau le mode actif pour désactiver le masquage.',
+  a1:'Non. Dimlet recouvre les écrans choisis de fenêtres noires. Laissez les moniteurs allumés. Il ne garantit ni économie d’énergie ni extinction du rétroéclairage LCD. La charge USB-C dépend du matériel.',
+  a4:'Compatible avec macOS 13+. Le mode externe exclut les écrans en miroir ; le mode tous les écrans inclut l’écran intégré. Testé sur MacBook Air M4. Intel et les anciennes versions de macOS nécessitent davantage de tests. Cinq langues sont disponibles : anglais, japonais, chinois simplifié, français et allemand.',
+  toggleTitle:'Assombrir les écrans',modeExternal:'Écrans externes',modeAll:'Tous les écrans',statusAll:'Tous les écrans se reposent. Le Mac travaille.'
+});
+Object.assign(translations.de, {
+  intro:'Der Raum wird ruhiger, die Arbeit geht weiter. Dunkle nur externe Monitore oder alle Bildschirme ab und halte deinen Mac wach.',
+  feature2:'Monitore bleiben eingeschaltet und verbunden, damit USB-C-Laden weiter möglich ist. Das interne Display kann sichtbar bleiben oder ebenfalls abgedunkelt werden.',
+  step2:'Wähle im Menü nur externe Monitore oder alle Monitore inklusive internem Display. Wähle den aktiven Modus erneut, um die Abdunklung auszuschalten.',
+  a1:'Nein. Dimlet verdeckt die gewählten Bildschirme mit schwarzen Fenstern. Lass die Monitore eingeschaltet. Energieeinsparungen oder eine dunkle LCD-Hintergrundbeleuchtung sind nicht garantiert. USB-C-Laden hängt von der Hardware ab.',
+  a4:'Ab macOS 13. Der externe Modus lässt gespiegelte Displays aus; der Modus für alle Monitore schließt das interne Display ein. Getestet auf M4 MacBook Air. Intel und ältere macOS-Versionen benötigen weitere Praxistests. Fünf Sprachen: Englisch, Japanisch, vereinfachtes Chinesisch, Französisch und Deutsch.',
+  toggleTitle:'Monitore abdunkeln',modeExternal:'Nur externe Monitore',modeAll:'Alle Monitore',statusAll:'Alle Bildschirme ruhen. Der Mac arbeitet.'
+});
 const nodes = [...document.querySelectorAll('[data-i18n]')];
 const english = Object.fromEntries(nodes.map(node => [node.dataset.i18n, node.innerText]));
+english.statusAll = 'All screens resting. Your Mac, still working.';
 english.statusOn = 'External screens resting. Your Mac, still working.';
 const languageSelect = document.getElementById('language');
 const toggle = document.getElementById('blackout-toggle');
 const demo = document.getElementById('demo');
 let language = 'en';
 let blackout = false;
+let mode = 'externalOnly';
+const modeButtons = [...document.querySelectorAll('[data-mode]')];
 function copy(key) { return (translations[language] || english)[key] || english[key]; }
 function updateDemo() {
   demo.dataset.blackout = String(blackout);
+  demo.dataset.mode = mode;
+  modeButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
   toggle.setAttribute('aria-checked', String(blackout));
   toggle.setAttribute('aria-label', copy('toggleTitle'));
-  document.getElementById('demo-status').textContent = copy(blackout ? 'statusOn' : 'statusOff');
+  document.getElementById('demo-status').textContent = copy(blackout ? (mode === 'allDisplays' ? 'statusAll' : 'statusOn') : 'statusOff');
 }
 function setLanguage(value) {
   language = Object.hasOwn(translations, value) ? value : 'en';
@@ -42,6 +80,7 @@ languageSelect.addEventListener('change', () => {
   setLanguage(languageSelect.value);
   try { localStorage.setItem('dimlet.site.language', language); } catch { /* The site also works without storage. */ }
 });
+modeButtons.forEach(button => button.addEventListener('click', () => { mode = button.dataset.mode; updateDemo(); }));
 toggle.addEventListener('click', () => { blackout = !blackout; updateDemo(); });
 let savedLanguage = 'en';
 try { savedLanguage = localStorage.getItem('dimlet.site.language') || 'en'; } catch { /* English remains the default. */ }

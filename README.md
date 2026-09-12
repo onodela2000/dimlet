@@ -7,11 +7,11 @@
   &nbsp; · &nbsp; <a href="#build-it-yourself">Build from source</a>
 </p>
 
-**Dimlet is a tiny macOS menu bar app that blacks out all your external displays while your Mac keeps working.**
+**Dimlet is a tiny macOS menu bar app that blacks out external monitors or every screen, including the built-in display while your Mac keeps working.**
 
-Running an AI agent, rendering a video, or waiting on a long build? Give your room a little less glow. Your laptop display stays usable, your work keeps going, and your monitors stay powered.
+Running an AI agent, rendering a video, or waiting on a long build? Give your room a little less glow. Choose whether to keep your laptop display usable or darken everything. Your work keeps going and your monitors stay powered.
 
-- **One toggle, every external screen.** New displays join automatically while blackout is on.
+- **Two clear modes.** Darken external monitors only, or all monitors including the built-in display. New screens follow the active mode.
 - **Your Mac stays awake.** Idle sleep is prevented while Dimlet is open, even with blackout off.
 - **Charging can continue.** Displays stay connected and powered; Dimlet doesn't send a monitor power-off command.
 - **A sleepy little friend in your menu bar.** Open eyes mean OFF. Sleepy eyes mean ON.
@@ -23,7 +23,7 @@ Running an AI agent, rendering a video, or waiting on a long build? Give your ro
 
 Requires **macOS 13 or later**. The universal release includes **Apple Silicon and Intel** binaries.
 
-1. Download `Dimlet-0.2.0-macos-universal.zip` from [Releases](https://github.com/onodela2000/dimlet/releases/latest).
+1. Download `Dimlet-0.3.0-macos-universal.zip` from [Releases](https://github.com/onodela2000/dimlet/releases/latest).
 2. Unzip it and drag **Dimlet.app** into **Applications**.
 3. Open Dimlet. Look for the little monitor in your **menu bar**. Blackout starts **OFF**.
 
@@ -33,21 +33,25 @@ Dimlet doesn't need Accessibility, Screen Recording, or administrator access to 
 
 ## Use
 
-Click the monitor icon, then **Black out all external displays**.
+Click the monitor icon and choose a mode:
+
+- **Darken external monitors only** — keep the built-in display usable.
+- **Darken all monitors (built-in + external)** — cover every screen, including the MacBook display.
+
+The active mode has a checkmark. Select it again to turn blackout off; select the other mode to switch directly. **Click any black screen to restore all screens**, including the built-in display. The app stays in the menu bar. Your last mode is remembered, but normal launches always start with blackout **OFF**.
 
 | State | External displays | Built-in display | Mac idle sleep |
 | --- | --- | --- | --- |
-| OFF | Normal | Unchanged | Prevented |
-| ON | Covered in black | Unchanged | Prevented |
-| Quit | Normal | Unchanged | Dimlet's prevention is removed |
-
-Click any black screen to reveal **all** external screens. The app stays in the menu bar, ready for next time. You can also use the same menu toggle to turn blackout off.
+| OFF | Normal | Normal | Prevented |
+| External monitors only | Black (independent displays) | Normal | Prevented |
+| All monitors | Black | Black | Prevented |
+| Quit | Normal | Normal | Dimlet's prevention is removed |
 
 **Change language:** open **Language** in the menu and choose **English**, **日本語**, **简体中文**, **Français**, or **Deutsch**. English is the default, regardless of the macOS language. Your choice applies immediately and is remembered after restarting Dimlet. The language submenu always includes “Language” so you can find your way back. While blackout is on, display idle sleep is prevented too, so the monitor connection can remain active. When you're done with background work, **Quit Dimlet** to release its sleep-prevention assertions.
 
 ## A few honest limits
 
-- Use **extended desktop** mode. Mirrored displays are skipped to avoid covering the built-in screen.
+- **External monitors only** skips mirrored displays to protect the built-in screen. **All monitors** covers all available screen surfaces, including mirrored content.
 - On a desktop Mac, all independent screens are external. Click a black screen to get them back.
 - Keep a MacBook's lid open. Dimlet doesn't override lid-close sleep, manual Sleep, shutdown, or a depleted battery.
 - It doesn't make a particular AI app or job run forever. App failures and network interruptions can still happen.
@@ -86,7 +90,7 @@ Optional integration check in an interactive desktop session:
 dist/Dimlet.app/Contents/MacOS/Dimlet --smoke-test
 ```
 
-This briefly covers eligible external screens, checks ON/OFF behavior, built-in display exclusion, SVG resources, sleep assertions, and live switching across all five languages, then restores the screens and quits. Unit tests cover display selection, mirroring, hot-plug input changes, complete translations, and saved language preferences. Runtime testing has been performed on Apple Silicon with macOS 26.3.1; Intel and older macOS releases need broader hands-on testing.
+This briefly covers both external and built-in screens, checks both modes, click-to-restore, repeated-mode OFF, SVG resources, sleep assertions, and live switching across all five languages, then restores the screens and quits. Unit tests cover display selection, mirroring, hot-plug input changes, complete translations, and saved language and mode preferences. Runtime testing has been performed on Apple Silicon with macOS 26.3.1; Intel and older macOS releases need broader hands-on testing.
 
 ## Website
 
