@@ -110,6 +110,8 @@ Open `http://localhost:8765`. Commit the generated `site/` HTML too. Shared CSS 
 
 Each language has its own URL, self-canonical, and reciprocal `hreflang` links. `site/sitemap.xml` lists the public pages. No automatic language redirect is used; the URL determines the language. For index monitoring, the owner can add the URL-prefix property `https://osakanasoft.github.io/dimlet/` in Google Search Console and submit `sitemap.xml`. A sitemap does not guarantee indexing or rankings. A project-level `robots.txt` would not control the host root, so this repository does not add one.
 
+Search Console ownership verification for the URL-prefix property `https://osakanasoft.github.io/dimlet/` uses `site/google27e099a1ddf01813.html`. Keep this public verification file and its contents unchanged after verification; it is not an analytics script.
+
 ## Contribute
 
 Small, thoughtful improvements are welcome. Run `swift test` and `./scripts/build.sh` before opening a pull request. For display issues, include your macOS version, Mac model, connection type, and whether mirroring is enabled. Please omit serial numbers and other personal data.
