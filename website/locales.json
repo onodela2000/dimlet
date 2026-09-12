@@ -60,7 +60,8 @@
     "company": "A project by Osakana Soft LLC",
     "privacy": "Privacy",
     "nameQuestion": "How do you say Dimlet, and what does it mean?",
-    "nameAnswer": "Say “DIM-let.” The name combines “dim,” meaning to lower the light, with “-let,” a suffix for something small. A little tool to darken your screens."
+    "nameAnswer": "Say “DIM-let.” The name combines “dim,” meaning to lower the light, with “-let,” a suffix for something small. A little tool to darken your screens.",
+    "socialAlt": "Dimlet: Darken your screens. Keep your Mac working. A sleepy monitor mascot with a crescent moon."
   },
   "ja": {
     "navHow": "使い方",
@@ -123,7 +124,8 @@
     "company": "開発・提供：合同会社おさかなソフト",
     "privacy": "プライバシー",
     "nameQuestion": "Dimletってどう読む？名前の由来は？",
-    "nameAnswer": "「ディムレット」と読みます。光を落とすという意味の「dim」と、小さいものを表す「-let」を組み合わせた造語。「画面を暗くする、小さな道具」という意味を込めています。"
+    "nameAnswer": "「ディムレット」と読みます。光を落とすという意味の「dim」と、小さいものを表す「-let」を組み合わせた造語。「画面を暗くする、小さな道具」という意味を込めています。",
+    "socialAlt": "Dimlet — 画面を暗くして、Macの作業はそのまま。三日月と、眠そうなモニターのキャラクター。"
   },
   "zh-Hans": {
     "navHow": "使用方法",
@@ -186,7 +188,8 @@
     "company": "由 Osakana Soft LLC 开发与提供",
     "privacy": "隐私",
     "nameQuestion": "Dimlet 怎么读？名字有什么含义？",
-    "nameAnswer": "Dimlet 读作“DIM-let”。名字由表示调暗光线的“dim”和表示小巧事物的后缀“-let”组成，寓意是“让屏幕变暗的小工具”。"
+    "nameAnswer": "Dimlet 读作“DIM-let”。名字由表示调暗光线的“dim”和表示小巧事物的后缀“-let”组成，寓意是“让屏幕变暗的小工具”。",
+    "socialAlt": "Dimlet：让屏幕变暗，让 Mac 继续工作。困倦的显示器吉祥物与一弯月亮。"
   },
   "fr": {
     "navHow": "Mode d’emploi",
@@ -249,7 +252,8 @@
     "company": "Un projet d’Osakana Soft LLC",
     "privacy": "Confidentialité",
     "nameQuestion": "Comment prononcer Dimlet, et que signifie ce nom ?",
-    "nameAnswer": "Dimlet se prononce « dim-let ». Ce nom associe « dim », qui signifie atténuer la lumière en anglais, à « -let », un suffixe qui évoque quelque chose de petit. Un petit outil pour assombrir vos écrans."
+    "nameAnswer": "Dimlet se prononce « dim-let ». Ce nom associe « dim », qui signifie atténuer la lumière en anglais, à « -let », un suffixe qui évoque quelque chose de petit. Un petit outil pour assombrir vos écrans.",
+    "socialAlt": "Dimlet : assombrissez vos écrans, votre Mac continue de travailler. Une mascotte en forme de moniteur endormi et un croissant de lune."
   },
   "de": {
     "navHow": "So funktioniert’s",
@@ -312,6 +316,7 @@
     "company": "Ein Projekt von Osakana Soft LLC",
     "privacy": "Datenschutz",
     "nameQuestion": "Wie spricht man Dimlet aus, und was bedeutet der Name?",
-    "nameAnswer": "Dimlet wird „Dim-let“ ausgesprochen. Der Name verbindet „dim“, englisch für „abdunkeln“, mit „-let“, einer Endung für etwas Kleines. Ein kleines Werkzeug, das deine Bildschirme abdunkelt."
+    "nameAnswer": "Dimlet wird „Dim-let“ ausgesprochen. Der Name verbindet „dim“, englisch für „abdunkeln“, mit „-let“, einer Endung für etwas Kleines. Ein kleines Werkzeug, das deine Bildschirme abdunkelt.",
+    "socialAlt": "Dimlet: Dunkle Bildschirme, dein Mac arbeitet weiter. Ein schläfriges Monitor-Maskottchen mit einer Mondsichel."
   }
 }

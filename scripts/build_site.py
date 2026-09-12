@@ -15,6 +15,11 @@ SITE = ROOT / 'site'
 DATA = json.loads((ROOT / 'website/locales.json').read_text(encoding='utf-8'))
 TEMPLATE = (ROOT / 'website/index.template.html').read_text(encoding='utf-8')
 BASE = 'https://osakanasoft.github.io/dimlet/'
+SOCIAL_IMAGE = 'assets/social-v2.png'
+SOCIAL_BYTES = (SITE / SOCIAL_IMAGE).read_bytes()
+assert SOCIAL_BYTES[:8] == b'\x89PNG\r\n\x1a\n', 'Social image must be a PNG'
+SOCIAL_WIDTH = int.from_bytes(SOCIAL_BYTES[16:20], 'big')
+SOCIAL_HEIGHT = int.from_bytes(SOCIAL_BYTES[20:24], 'big')
 LANGUAGES = {'en': ('', 'English'), 'ja': ('ja/', '日本語'), 'zh-Hans': ('zh-hans/', '简体中文'), 'fr': ('fr/', 'Français'), 'de': ('de/', 'Deutsch')}
 GUIDE = 'ja/mac-usb-c-monitor-charging-screen-off/'
 PRIVACY = 'privacy/'
@@ -48,7 +53,7 @@ def render(language, path=None):
     alternatives += f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}">'
     links = ' '.join(f'<a href="{prefix}{folder or "./"}" lang="{code}" hreflang="{code}"' + (' aria-current="page"' if code == language else '') + f'>{name}</a>' for code, (folder, name) in LANGUAGES.items())
     schema = {'@context': 'https://schema.org', '@type': 'SoftwareApplication', 'name': 'Dimlet', 'url': BASE + directory, 'description': DESCRIPTIONS[language], 'operatingSystem': 'macOS 13 or later', 'applicationCategory': 'UtilitiesApplication', 'softwareVersion': (ROOT / 'VERSION').read_text().strip(), 'inLanguage': language, 'license': 'https://github.com/osakanasoft/dimlet/blob/main/LICENSE', 'downloadUrl': DOWNLOAD_URL, 'publisher': ORGANIZATION, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}}
-    values = {'DOWNLOAD_URL': DOWNLOAD_URL, 'LANG': language, 'TITLE': escape(TITLES[language]), 'DESCRIPTION': escape(DESCRIPTIONS[language]), 'CANONICAL': BASE + path, 'ASSET_BASE': prefix, 'HOME': prefix + (directory or './'), 'GUIDE_URL': prefix + GUIDE, 'PRIVACY_URL': prefix + PRIVACY + ('#japanese' if language == 'ja' else ''), 'LANGUAGE_LINKS': links, 'ALTERNATES': alternatives, 'SCHEMA': json_script(schema), 'CSS_HASH': hashlib.sha256((SITE / 'style.css').read_bytes()).hexdigest()[:12], 'JS_HASH': hashlib.sha256((SITE / 'app.js').read_bytes()).hexdigest()[:12]}
+    values = {'SOCIAL_IMAGE_URL': BASE + SOCIAL_IMAGE, 'SOCIAL_IMAGE_WIDTH': str(SOCIAL_WIDTH), 'SOCIAL_IMAGE_HEIGHT': str(SOCIAL_HEIGHT), 'SOCIAL_IMAGE_ALT': escape(copy['socialAlt']), 'DOWNLOAD_URL': DOWNLOAD_URL, 'LANG': language, 'TITLE': escape(TITLES[language]), 'DESCRIPTION': escape(DESCRIPTIONS[language]), 'CANONICAL': BASE + path, 'ASSET_BASE': prefix, 'HOME': prefix + (directory or './'), 'GUIDE_URL': prefix + GUIDE, 'PRIVACY_URL': prefix + PRIVACY + ('#japanese' if language == 'ja' else ''), 'LANGUAGE_LINKS': links, 'ALTERNATES': alternatives, 'SCHEMA': json_script(schema), 'CSS_HASH': hashlib.sha256((SITE / 'style.css').read_bytes()).hexdigest()[:12], 'JS_HASH': hashlib.sha256((SITE / 'app.js').read_bytes()).hexdigest()[:12]}
     for key, value in values.items():
         page = page.replace('{{' + key + '}}', value)
     for code, (folder, _) in LANGUAGES.items():
