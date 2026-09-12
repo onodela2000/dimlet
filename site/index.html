@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f9f7f2">
+  <title>Dimlet — Screens rest. Your Mac keeps going.</title>
+  <meta name="description" content="A tiny, free macOS menu bar app. Black out your external displays while your Mac keeps working. Five languages. Open source.">
+  <meta property="og:title" content="Dimlet — Screens rest. Your Mac keeps going.">
+  <meta property="og:description" content="Less glow, more flow. A tiny, free menu bar friend for your Mac.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onodela2000.github.io/dimlet/">
+  <meta property="og:image" content="https://onodela2000.github.io/dimlet/assets/social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://onodela2000.github.io/dimlet/">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav wrap">
+  <a class="brand" href="./" aria-label="Dimlet home"><img src="assets/icon.svg" alt="" width="38" height="38">Dimlet<span class="version">v0.2</span></a>
+  <nav aria-label="Main navigation">
+    <a class="nav-how" href="#how" data-i18n="navHow">How it works</a>
+    <a href="https://github.com/onodela2000/dimlet">GitHub <span aria-hidden="true">↗</span></a>
+    <label class="language"><span class="sr-only">Language</span><select id="language" aria-label="Language"><option value="en">English</option><option value="ja">日本語</option><option value="zh-Hans">简体中文</option><option value="fr">Français</option><option value="de">Deutsch</option></select></label>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero wrap">
+    <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> <span data-i18n="eyebrow">A LITTLE MENU BAR MAGIC FOR MAC</span></p>
+    <h1><span data-i18n="headline1">Screens rest.</span><br><em data-i18n="headline2">Your Mac keeps going.</em></h1>
+    <p class="intro" data-i18n="intro">Let your room wind down, while your work carries on. Dimlet blacks out your external displays and keeps your Mac awake.</p>
+    <div class="actions"><a class="button primary" href="https://github.com/onodela2000/dimlet/releases/latest"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="download">Download for Mac</span></a><a class="button secondary" href="https://github.com/onodela2000/dimlet" data-i18n="source">Meet the source ↗</a></div>
+    <p class="compat" data-i18n="compat">Free & open source · macOS 13+ · Apple Silicon & Intel</p>
+
+    <div class="demo" id="demo" data-blackout="false">
+      <div class="demo-top"><span class="demo-label" data-i18n="desk">YOUR DESK, A LITTLE QUIETER</span><span class="live-label"><i></i><span data-i18n="live">Interactive preview</span></span></div>
+      <div class="scene" aria-hidden="true">
+        <span class="spark spark-one">✧</span><span class="spark spark-two">✦</span><span class="moon">☾</span>
+        <div class="monitor monitor-left"><div class="monitor-screen"><div class="wallpaper wallpaper-one"></div><div class="sleep-face"><span>⌣ &nbsp; ⌣</span><b>ᴗ</b></div></div><div class="monitor-chin"><i></i></div><div class="stand"></div><div class="foot"></div></div>
+        <div class="monitor monitor-right"><div class="monitor-screen"><div class="wallpaper wallpaper-two"></div><div class="sleep-face"><span>⌣ &nbsp; ⌣</span><b>ᴗ</b></div></div><div class="monitor-chin"><i></i></div><div class="stand"></div><div class="foot"></div></div>
+        <div class="laptop"><div class="laptop-screen"><div class="editor-bar"><i></i><i></i><i></i><span>still making things</span></div><div class="editor-body"><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><span class="code-line"></span><div class="working"><i></i>Mac at work</div></div></div><div class="laptop-base"></div></div>
+        <div class="desk-line"></div>
+      </div>
+      <div class="demo-control"><img src="assets/icon.svg" alt="" width="45" height="45"><div><strong data-i18n="toggleTitle">Black out external displays</strong><span id="demo-status" aria-live="polite" data-i18n="statusOff">Your screens are on. Give the switch a try.</span></div><button id="blackout-toggle" role="switch" aria-checked="false" aria-label="Black out external displays"><span></span></button></div>
+      <p class="demo-note" data-i18n="demoNote">Just a preview. Your actual displays won't change.</p>
+    </div>
+  </section>
+
+  <section class="benefits wrap" aria-label="Features">
+    <article><span class="feature-icon" aria-hidden="true">◐</span><h2 data-i18n="feature1Title">Less light. Same momentum.</h2><p data-i18n="feature1">AI agents, long builds, overnight renders. Let them run while the room feels a little calmer.</p></article>
+    <article><span class="feature-icon" aria-hidden="true">⌁</span><h2 data-i18n="feature2Title">Stay connected.</h2><p data-i18n="feature2">Monitors stay powered and connected, so USB-C charging can continue. Your built-in screen stays yours.</p></article>
+    <article><span class="feature-icon" aria-hidden="true">♡</span><h2 data-i18n="feature3Title">Small, in all the right ways.</h2><p data-i18n="feature3">Native Swift. Five languages. No account, tracking, subscriptions, or extra permissions.</p></article>
+  </section>
+
+  <section class="how wrap" id="how">
+    <div class="section-heading"><p class="eyebrow" data-i18n="howEyebrow">SETTLE IN, IN SECONDS</p><h2 data-i18n="howTitle">One tiny app.<br>One quieter workspace.</h2><a class="text-link" id="guide-link" href="https://github.com/onodela2000/dimlet#install"><span data-i18n="guide">Read the installation guide</span> <span aria-hidden="true">↗</span></a></div>
+    <ol class="steps"><li><span class="step-number">01</span><div><h3 data-i18n="step1Title">Make a little room.</h3><p data-i18n="step1">Download the ZIP, unzip it, and move Dimlet to Applications. Open it to meet your new menu bar friend.</p></div></li><li><span class="step-number">02</span><div><h3 data-i18n="step2Title">Give your screens a break.</h3><p data-i18n="step2">Click the little monitor in your menu bar, then turn on blackout. All independent external displays go black.</p></div></li><li><span class="step-number">03</span><div><h3 data-i18n="step3Title">Come back whenever.</h3><p data-i18n="step3">Click any black screen to bring them all back. Dimlet keeps your Mac awake until you quit the app.</p></div></li></ol>
+  </section>
+
+  <section class="questions wrap" aria-labelledby="questions-title"><p class="eyebrow" data-i18n="faqEyebrow">THE LITTLE DETAILS</p><h2 id="questions-title" data-i18n="faqTitle">Good to know.</h2>
+    <details><summary data-i18n="q1">Does it actually turn my monitors off?</summary><p data-i18n="a1">No. Dimlet covers external screens with black windows. Keep the monitors physically on. It doesn't guarantee energy savings or a fully dark LCD backlight. USB-C charging depends on your hardware.</p></details>
+    <details><summary data-i18n="q2">Can I close my MacBook?</summary><p data-i18n="a2">Keep the lid open. Dimlet prevents automatic idle sleep while it runs; it doesn't override lid-close sleep, manual sleep, shutdown, or a depleted battery.</p></details>
+    <details><summary data-i18n="q3">What about setup and permissions?</summary><p data-i18n="a3">No Accessibility, Screen Recording, or admin permissions are needed to run Dimlet. The current release isn't Apple-notarized, so first launch may require System Settings → Privacy & Security → Open Anyway. See the installation guide for details.</p></details>
+    <details><summary data-i18n="q4">Will it work with my setup?</summary><p data-i18n="a4">Dimlet supports macOS 13+ with independent, extended displays. Mirrored screens are skipped. Tested on an M4 MacBook Air; Intel and older macOS versions still need broader real-world testing. The app menu supports English, Japanese, Simplified Chinese, French, and German.</p></details>
+  </section>
+  <section class="closing wrap"><img src="assets/icon.svg" alt="Dimlet's sleepy monitor mascot" width="84" height="84"><h2 data-i18n="closing">A little less glow.<br>A lot more flow.</h2><a class="button primary" href="https://github.com/onodela2000/dimlet/releases/latest" data-i18n="download">Download for Mac</a><span data-i18n="closingNote">Yours to use. Yours to tinker with.</span></section>
+</main>
+<footer class="wrap"><a class="brand" href="./">Dimlet <span aria-hidden="true">✦</span></a><p data-i18n="footer">Made for the work that keeps going.</p><div><a href="https://github.com/onodela2000/dimlet">GitHub ↗</a><a href="https://github.com/onodela2000/dimlet/blob/main/LICENSE">MIT License</a></div></footer>
+</body>
+</html>

@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/onodela2000/dimlet/releases/latest"><b>macOS版をダウンロード</b></a>
+  &nbsp; · &nbsp; <a href="https://onodela2000.github.io/dimlet/">公式サイト</a>
   &nbsp; · &nbsp; <a href="README.md">English</a>
 </p>
 
@@ -75,6 +76,10 @@ open dist/Dimlet.app
 Universal版は`./scripts/build.sh --universal`でビルドします。`dist/`にアプリ、ZIP、SHA-256チェックサムが生成されます。自動インストールは行いません。
 
 実機テストはApple Silicon／macOS 26.3.1で実施しています。Intelや以前のmacOSでの実機検証は、今後の協力を歓迎します。テストの詳細は[英語README](README.md#build-it-yourself)を参照してください。
+
+## 公式サイトの更新
+
+[LP](https://onodela2000.github.io/dimlet/)は`site/`にあります。HTML・CSS・JavaScriptとローカル画像のみで、ビルドや外部ライブラリは不要です。`python3 -m http.server 8765 --directory site`を実行して`http://localhost:8765`で確認できます。`main`の`site/`を更新するとGitHub Pagesへ自動公開されます。LPも5言語に対応し、スイッチはページ内だけで動くデモです。
 
 ## コントリビュート
 

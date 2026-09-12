@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/onodela2000/dimlet/releases/latest"><b>Download for macOS</b></a>
+  &nbsp; · &nbsp; <a href="https://onodela2000.github.io/dimlet/">Website</a>
   &nbsp; · &nbsp; <a href="README.ja.md">日本語</a>
   &nbsp; · &nbsp; <a href="#build-it-yourself">Build from source</a>
 </p>
@@ -86,6 +87,16 @@ dist/Dimlet.app/Contents/MacOS/Dimlet --smoke-test
 ```
 
 This briefly covers eligible external screens, checks ON/OFF behavior, built-in display exclusion, SVG resources, sleep assertions, and live switching across all five languages, then restores the screens and quits. Unit tests cover display selection, mirroring, hot-plug input changes, complete translations, and saved language preferences. Runtime testing has been performed on Apple Silicon with macOS 26.3.1; Intel and older macOS releases need broader hands-on testing.
+
+## Website
+
+The [landing page](https://onodela2000.github.io/dimlet/) lives in `site/`: plain HTML, CSS, JavaScript, and local assets. No build step or third-party dependencies. Preview it with:
+
+```bash
+python3 -m http.server 8765 --directory site
+```
+
+Open `http://localhost:8765`. Changes to `site/` on `main` deploy automatically through `.github/workflows/pages.yml`. The page supports the same five languages as the app; its switch is a visual demo only.
 
 ## Contribute
 
