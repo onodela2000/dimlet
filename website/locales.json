@@ -58,7 +58,9 @@
     "q5": "Can I keep USB-C charging while the monitor looks off?",
     "a5": "Dimlet keeps the monitor powered and connected, so USB-C charging can continue if your hardware supports it. It makes the picture black; it does not disable the display signal or turn off the panel. Check your monitor’s power and standby charging settings first.",
     "company": "A project by Osakana Soft LLC",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "nameQuestion": "How do you say Dimlet, and what does it mean?",
+    "nameAnswer": "Say “DIM-let.” The name combines “dim,” meaning to lower the light, with “-let,” a suffix for something small. A little tool to darken your screens."
   },
   "ja": {
     "navHow": "使い方",
@@ -119,7 +121,9 @@
     "q5": "モニターを暗くしたまま、USB-C充電は続けられる？",
     "a5": "Dimletはモニターの電源と接続を保つので、機器の仕様が対応していればUSB-C給電を継続できます。映像信号を止めたり、パネルの電源を切ったりする機能ではありません。まずモニターの待機中給電設定を確認してください。",
     "company": "開発・提供：合同会社おさかなソフト",
-    "privacy": "プライバシー"
+    "privacy": "プライバシー",
+    "nameQuestion": "Dimletってどう読む？名前の由来は？",
+    "nameAnswer": "「ディムレット」と読みます。光を落とすという意味の「dim」と、小さいものを表す「-let」を組み合わせた造語。「画面を暗くする、小さな道具」という意味を込めています。"
   },
   "zh-Hans": {
     "navHow": "使用方法",
@@ -180,7 +184,9 @@
     "q5": "屏幕变暗后，还能继续 USB-C 充电吗？",
     "a5": "Dimlet 保持显示器通电和连接，硬件支持时可以继续充电。它用黑色覆盖画面，不会关闭视频信号或面板电源。请先检查显示器的待机充电设置。",
     "company": "由 Osakana Soft LLC 开发与提供",
-    "privacy": "隐私"
+    "privacy": "隐私",
+    "nameQuestion": "Dimlet 怎么读？名字有什么含义？",
+    "nameAnswer": "Dimlet 读作“DIM-let”。名字由表示调暗光线的“dim”和表示小巧事物的后缀“-let”组成，寓意是“让屏幕变暗的小工具”。"
   },
   "fr": {
     "navHow": "Mode d’emploi",
@@ -241,7 +247,9 @@
     "q5": "La charge USB-C peut-elle continuer avec un écran sombre ?",
     "a5": "Dimlet garde le moniteur alimenté et connecté : la charge peut continuer si le matériel le permet. L’image est recouverte de noir, mais le signal vidéo et la dalle restent actifs. Vérifiez d’abord les réglages de charge en veille.",
     "company": "Un projet d’Osakana Soft LLC",
-    "privacy": "Confidentialité"
+    "privacy": "Confidentialité",
+    "nameQuestion": "Comment prononcer Dimlet, et que signifie ce nom ?",
+    "nameAnswer": "Dimlet se prononce « dim-let ». Ce nom associe « dim », qui signifie atténuer la lumière en anglais, à « -let », un suffixe qui évoque quelque chose de petit. Un petit outil pour assombrir vos écrans."
   },
   "de": {
     "navHow": "So funktioniert’s",
@@ -302,6 +310,8 @@
     "q5": "Kann USB-C-Laden bei dunklem Bildschirm weitergehen?",
     "a5": "Dimlet hält den Monitor eingeschaltet und verbunden. Laden bleibt möglich, wenn die Hardware es unterstützt. Das Bild wird schwarz verdeckt; Videosignal und Panel werden nicht ausgeschaltet. Prüfe zuerst die Standby-Ladeeinstellungen.",
     "company": "Ein Projekt von Osakana Soft LLC",
-    "privacy": "Datenschutz"
+    "privacy": "Datenschutz",
+    "nameQuestion": "Wie spricht man Dimlet aus, und was bedeutet der Name?",
+    "nameAnswer": "Dimlet wird „Dim-let“ ausgesprochen. Der Name verbindet „dim“, englisch für „abdunkeln“, mit „-let“, einer Endung für etwas Kleines. Ein kleines Werkzeug, das deine Bildschirme abdunkelt."
   }
 }
