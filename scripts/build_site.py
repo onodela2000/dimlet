@@ -14,13 +14,13 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / 'site'
 DATA = json.loads((ROOT / 'website/locales.json').read_text(encoding='utf-8'))
 TEMPLATE = (ROOT / 'website/index.template.html').read_text(encoding='utf-8')
-BASE = 'https://onodela2000.github.io/dimlet/'
+BASE = 'https://osakanasoft.github.io/dimlet/'
 LANGUAGES = {'en': ('', 'English'), 'ja': ('ja/', '日本語'), 'zh-Hans': ('zh-hans/', '简体中文'), 'fr': ('fr/', 'Français'), 'de': ('de/', 'Deutsch')}
 GUIDE = 'ja/mac-usb-c-monitor-charging-screen-off/'
 PRIVACY = 'privacy/'
 ORGANIZATION = {'@type': 'Organization', 'name': 'Osakana Soft LLC', 'legalName': '合同会社おさかなソフト', 'url': 'https://osakanasoft.com/'}
 VERSION = (ROOT / 'VERSION').read_text().strip()
-DOWNLOAD_URL = f'https://github.com/onodela2000/dimlet/releases/download/v{VERSION}/Dimlet-{VERSION}-macos-universal.zip'
+DOWNLOAD_URL = f'https://github.com/osakanasoft/dimlet/releases/download/v{VERSION}/Dimlet-{VERSION}-macos-universal.zip'
 TITLES = {
     'en': 'Darken Mac screens without sleep | USB-C charging & AI tasks | Dimlet',
     'ja': 'Macの画面だけ暗く・スリープさせない｜USB-C充電と作業を続ける Dimlet',
@@ -47,7 +47,7 @@ def render(language, path=None):
     alternatives = '\n  '.join(f'<link rel="alternate" hreflang="{code}" href="{BASE}{folder}">' for code, (folder, _) in LANGUAGES.items())
     alternatives += f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}">'
     links = ' '.join(f'<a href="{prefix}{folder or "./"}" lang="{code}" hreflang="{code}"' + (' aria-current="page"' if code == language else '') + f'>{name}</a>' for code, (folder, name) in LANGUAGES.items())
-    schema = {'@context': 'https://schema.org', '@type': 'SoftwareApplication', 'name': 'Dimlet', 'url': BASE + directory, 'description': DESCRIPTIONS[language], 'operatingSystem': 'macOS 13 or later', 'applicationCategory': 'UtilitiesApplication', 'softwareVersion': (ROOT / 'VERSION').read_text().strip(), 'inLanguage': language, 'license': 'https://github.com/onodela2000/dimlet/blob/main/LICENSE', 'downloadUrl': DOWNLOAD_URL, 'publisher': ORGANIZATION, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}}
+    schema = {'@context': 'https://schema.org', '@type': 'SoftwareApplication', 'name': 'Dimlet', 'url': BASE + directory, 'description': DESCRIPTIONS[language], 'operatingSystem': 'macOS 13 or later', 'applicationCategory': 'UtilitiesApplication', 'softwareVersion': (ROOT / 'VERSION').read_text().strip(), 'inLanguage': language, 'license': 'https://github.com/osakanasoft/dimlet/blob/main/LICENSE', 'downloadUrl': DOWNLOAD_URL, 'publisher': ORGANIZATION, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}}
     values = {'DOWNLOAD_URL': DOWNLOAD_URL, 'LANG': language, 'TITLE': escape(TITLES[language]), 'DESCRIPTION': escape(DESCRIPTIONS[language]), 'CANONICAL': BASE + path, 'ASSET_BASE': prefix, 'HOME': prefix + (directory or './'), 'GUIDE_URL': prefix + GUIDE, 'PRIVACY_URL': prefix + PRIVACY + ('#japanese' if language == 'ja' else ''), 'LANGUAGE_LINKS': links, 'ALTERNATES': alternatives, 'SCHEMA': json_script(schema), 'CSS_HASH': hashlib.sha256((SITE / 'style.css').read_bytes()).hexdigest()[:12], 'JS_HASH': hashlib.sha256((SITE / 'app.js').read_bytes()).hexdigest()[:12]}
     for key, value in values.items():
         page = page.replace('{{' + key + '}}', value)
@@ -56,7 +56,7 @@ def render(language, path=None):
     page = page.replace('id="demo-status"', 'id="demo-status" data-off="' + escape(copy['statusOff']) + '" data-external="' + escape(copy['statusOn']) + '" data-all="' + escape(copy['statusAll']) + '"')
     page = page.replace('aria-label="Darken monitors"', 'aria-label="' + escape(copy['toggleTitle']) + '"')
     if language == 'ja':
-        page = page.replace('id="guide-link" href="https://github.com/onodela2000/dimlet#install"', 'id="guide-link" href="https://github.com/onodela2000/dimlet/blob/main/README.ja.md"')
+        page = page.replace('id="guide-link" href="https://github.com/osakanasoft/dimlet#install"', 'id="guide-link" href="https://github.com/osakanasoft/dimlet/blob/main/README.ja.md"')
     assert '{{' not in page, 'Unresolved template field'
     return page
 

@@ -196,7 +196,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         alert.addButton(withTitle: language.text(.done))
         alert.addButton(withTitle: "GitHub")
         if alert.runModal() == .alertSecondButtonReturn,
-           let url = URL(string: "https://github.com/onodela2000/dimlet") { NSWorkspace.shared.open(url) }
+           let url = URL(string: "https://github.com/osakanasoft/dimlet") { NSWorkspace.shared.open(url) }
     }
 
     private func smokeTest() {
