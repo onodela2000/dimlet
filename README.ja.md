@@ -93,6 +93,8 @@ Universal版は`./scripts/build.sh --universal`でビルドします。`dist/`�
 
 各言語のcanonical・hreflangと`sitemap.xml`を生成します。検索掲載の確認には、所有者のGoogle Search ConsoleでURLプレフィックス`https://osakanasoft.github.io/dimlet/`を登録し、`sitemap.xml`を送信できます。サイトマップは掲載や順位を保証するものではありません。
 
+Search ConsoleのURLプレフィックスプロパティ`https://osakanasoft.github.io/dimlet/`の所有権確認用に、`site/google27e099a1ddf01813.html`を配置しています。確認後もファイルと内容を維持してください。公開を前提とした確認用ファイルで、アクセス解析スクリプトではありません。
+
 ## コントリビュート
 
 小さく使いやすいアプリにする改善を歓迎します。PRの前に`swift test`と`./scripts/build.sh`を実行してください。表示の不具合はmacOSのバージョン、Macの機種、接続方法、ミラーリングの有無を添えてIssueへ。シリアル番号などの個人情報は不要です。
