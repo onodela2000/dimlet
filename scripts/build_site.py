@@ -17,6 +17,8 @@ TEMPLATE = (ROOT / 'website/index.template.html').read_text(encoding='utf-8')
 BASE = 'https://onodela2000.github.io/dimlet/'
 LANGUAGES = {'en': ('', 'English'), 'ja': ('ja/', '日本語'), 'zh-Hans': ('zh-hans/', '简体中文'), 'fr': ('fr/', 'Français'), 'de': ('de/', 'Deutsch')}
 GUIDE = 'ja/mac-usb-c-monitor-charging-screen-off/'
+PRIVACY = 'privacy/'
+ORGANIZATION = {'@type': 'Organization', 'name': 'Osakana Soft LLC', 'legalName': '合同会社おさかなソフト', 'url': 'https://osakanasoft.com/'}
 VERSION = (ROOT / 'VERSION').read_text().strip()
 DOWNLOAD_URL = f'https://github.com/onodela2000/dimlet/releases/download/v{VERSION}/Dimlet-{VERSION}-macos-universal.zip'
 TITLES = {
@@ -45,8 +47,8 @@ def render(language, path=None):
     alternatives = '\n  '.join(f'<link rel="alternate" hreflang="{code}" href="{BASE}{folder}">' for code, (folder, _) in LANGUAGES.items())
     alternatives += f'\n  <link rel="alternate" hreflang="x-default" href="{BASE}">'
     links = ' '.join(f'<a href="{prefix}{folder or "./"}" lang="{code}" hreflang="{code}"' + (' aria-current="page"' if code == language else '') + f'>{name}</a>' for code, (folder, name) in LANGUAGES.items())
-    schema = {'@context': 'https://schema.org', '@type': 'SoftwareApplication', 'name': 'Dimlet', 'url': BASE + directory, 'description': DESCRIPTIONS[language], 'operatingSystem': 'macOS 13 or later', 'applicationCategory': 'UtilitiesApplication', 'softwareVersion': (ROOT / 'VERSION').read_text().strip(), 'inLanguage': language, 'license': 'https://github.com/onodela2000/dimlet/blob/main/LICENSE', 'downloadUrl': DOWNLOAD_URL, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}}
-    values = {'DOWNLOAD_URL': DOWNLOAD_URL, 'LANG': language, 'TITLE': escape(TITLES[language]), 'DESCRIPTION': escape(DESCRIPTIONS[language]), 'CANONICAL': BASE + path, 'ASSET_BASE': prefix, 'HOME': prefix + (directory or './'), 'GUIDE_URL': prefix + GUIDE, 'LANGUAGE_LINKS': links, 'ALTERNATES': alternatives, 'SCHEMA': json_script(schema), 'CSS_HASH': hashlib.sha256((SITE / 'style.css').read_bytes()).hexdigest()[:12], 'JS_HASH': hashlib.sha256((SITE / 'app.js').read_bytes()).hexdigest()[:12]}
+    schema = {'@context': 'https://schema.org', '@type': 'SoftwareApplication', 'name': 'Dimlet', 'url': BASE + directory, 'description': DESCRIPTIONS[language], 'operatingSystem': 'macOS 13 or later', 'applicationCategory': 'UtilitiesApplication', 'softwareVersion': (ROOT / 'VERSION').read_text().strip(), 'inLanguage': language, 'license': 'https://github.com/onodela2000/dimlet/blob/main/LICENSE', 'downloadUrl': DOWNLOAD_URL, 'publisher': ORGANIZATION, 'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}}
+    values = {'DOWNLOAD_URL': DOWNLOAD_URL, 'LANG': language, 'TITLE': escape(TITLES[language]), 'DESCRIPTION': escape(DESCRIPTIONS[language]), 'CANONICAL': BASE + path, 'ASSET_BASE': prefix, 'HOME': prefix + (directory or './'), 'GUIDE_URL': prefix + GUIDE, 'PRIVACY_URL': prefix + PRIVACY + ('#japanese' if language == 'ja' else ''), 'LANGUAGE_LINKS': links, 'ALTERNATES': alternatives, 'SCHEMA': json_script(schema), 'CSS_HASH': hashlib.sha256((SITE / 'style.css').read_bytes()).hexdigest()[:12], 'JS_HASH': hashlib.sha256((SITE / 'app.js').read_bytes()).hexdigest()[:12]}
     for key, value in values.items():
         page = page.replace('{{' + key + '}}', value)
     for code, (folder, _) in LANGUAGES.items():
@@ -69,10 +71,22 @@ article_desc = 'MacBookをUSB-Cで充電だけしたいのに画面がつく、�
 article = re.sub(r'<title>.*?</title>', '<title>' + article_title + ' | Dimlet</title>', article)
 article = re.sub(r'(<meta (?:name="description"|property="og:description") content=")[^"]*', lambda m: m[1] + article_desc, article)
 article = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m[1] + article_title, article)
-article_schema = {'@context': 'https://schema.org', '@type': 'Article', 'headline': article_title, 'description': article_desc, 'inLanguage': 'ja', 'mainEntityOfPage': BASE + GUIDE, 'datePublished': '2026-09-13', 'dateModified': '2026-09-13', 'author': {'@type': 'Organization', 'name': 'Dimlet', 'url': BASE}}
+article_schema = {'@context': 'https://schema.org', '@type': 'Article', 'headline': article_title, 'description': article_desc, 'inLanguage': 'ja', 'mainEntityOfPage': BASE + GUIDE, 'datePublished': '2026-09-13', 'dateModified': '2026-09-13', 'author': ORGANIZATION}
 article = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda _: '<script type="application/ld+json">' + json_script(article_schema) + '</script>', article, flags=re.S)
 outputs[Path(GUIDE) / 'index.html'] = article
-urls = [BASE + folder for folder, _ in LANGUAGES.values()] + [BASE + GUIDE]
+privacy = render('en', PRIVACY)
+privacy_body = (ROOT / 'website/privacy.html').read_text(encoding='utf-8')
+privacy = re.sub(r'<main id="main">.*?</main>', lambda _: privacy_body, privacy, flags=re.S)
+privacy = privacy.replace('href="#how"', 'href="../#how"')
+privacy = re.sub(r'\s*<link rel="alternate"[^>]+>', '', privacy)
+privacy = re.sub(r'<title>.*?</title>', '<title>Privacy / プライバシー | Dimlet</title>', privacy)
+privacy_desc = 'How Osakana Soft LLC handles information in Dimlet, its website, and support. English and Japanese privacy notice.'
+privacy = re.sub(r'(<meta (?:name="description"|property="og:description") content=")[^"]*', lambda m: m[1] + privacy_desc, privacy)
+privacy = re.sub(r'(<meta property="og:title" content=")[^"]*', lambda m: m[1] + 'Privacy / プライバシー | Dimlet', privacy)
+privacy_schema = {'@context': 'https://schema.org', '@type': 'WebPage', 'name': 'Dimlet Privacy', 'url': BASE + PRIVACY, 'inLanguage': ['en', 'ja'], 'publisher': ORGANIZATION}
+privacy = re.sub(r'<script type="application/ld\+json">.*?</script>', lambda _: '<script type="application/ld+json">' + json_script(privacy_schema) + '</script>', privacy, flags=re.S)
+outputs[Path(PRIVACY) / 'index.html'] = privacy
+urls = [BASE + folder for folder, _ in LANGUAGES.values()] + [BASE + GUIDE, BASE + PRIVACY]
 outputs[Path('sitemap.xml')] = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join('  <url><loc>' + escape(url) + '</loc></url>\n' for url in urls) + '</urlset>\n'
 outputs[Path('.nojekyll')] = ''
 
@@ -120,4 +134,4 @@ for path, content in outputs.items():
     else:
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(content, encoding='utf-8')
-print(f'{"Verified" if check else "Built"} five language pages, charging guide, metadata, internal links, schemas, and sitemap.')
+print(f'{"Verified" if check else "Built"} five language pages, charging guide, privacy notice, metadata, internal links, schemas, and sitemap.')

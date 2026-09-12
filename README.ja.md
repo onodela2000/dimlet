@@ -18,6 +18,8 @@ Dimletは、外部モニターだけ、または内蔵画面も含めたすべ�
 
 > 実際に電源を切るのではなく、画面を黒いウインドウで覆う仕組みです。省電力やバックライト消灯を保証するものではありません。モニター本体の電源はONにしてください。USB-C給電の継続は、モニター・ケーブル・電源の仕様にも依存します。
 
+開発・提供：**[合同会社おさかなソフト](https://osakanasoft.com/)**。[プライバシー](PRIVACY.md)・[脆弱性の連絡先](SECURITY.md)
+
 ## 導入手順
 
 **macOS 13以降**が必要です。配布版はApple Silicon／Intel両対応のUniversalアプリです。
@@ -87,7 +89,7 @@ Universal版は`./scripts/build.sh --universal`でビルドします。`dist/`�
 
 [日本語LP](https://onodela2000.github.io/dimlet/ja/)と[USB-C充電の解説](https://onodela2000.github.io/dimlet/ja/mac-usb-c-monitor-charging-screen-off/)を公開しています。5言語それぞれにURLがあり、JavaScriptを実行しなくても本文を読めます。
 
-編集元は`website/index.template.html`、`website/locales.json`、`website/charging-guide.html`です。編集後に`python3 scripts/build_site.py`で生成し、`python3 scripts/build_site.py --check`でリンク・メタ情報・生成物を確認します。生成した`site/`もコミットしてください。プレビューは`python3 -m http.server 8765 --directory site`で起動できます。CSSとデモのJavaScriptは`site/`にあり、変更後も再生成してください。`main`へ反映するとGitHub Pagesに自動公開されます。
+編集元は`website/index.template.html`、`website/locales.json`、`website/charging-guide.html`、`website/privacy.html`です。編集後に`python3 scripts/build_site.py`で生成し、`python3 scripts/build_site.py --check`でリンク・メタ情報・生成物を確認します。生成した`site/`もコミットしてください。プレビューは`python3 -m http.server 8765 --directory site`で起動できます。CSSとデモのJavaScriptは`site/`にあり、変更後も再生成してください。`main`へ反映するとGitHub Pagesに自動公開されます。
 
 各言語のcanonical・hreflangと`sitemap.xml`を生成します。検索掲載の確認には、所有者のGoogle Search ConsoleでURLプレフィックス`https://onodela2000.github.io/dimlet/`を登録し、`sitemap.xml`を送信できます。サイトマップは掲載や順位を保証するものではありません。
 
