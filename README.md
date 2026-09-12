@@ -1,0 +1,94 @@
+<p align="center"><img src="assets/hero.svg" alt="Dimlet — Screens rest. Your Mac keeps going." width="100%"></p>
+
+<p align="center">
+  <a href="https://github.com/onodela2000/dimlet/releases/latest"><b>Download for macOS</b></a>
+  &nbsp; · &nbsp; <a href="README.ja.md">日本語</a>
+  &nbsp; · &nbsp; <a href="#build-it-yourself">Build from source</a>
+</p>
+
+**Dimlet is a tiny macOS menu bar app that blacks out all your external displays while your Mac keeps working.**
+
+Running an AI agent, rendering a video, or waiting on a long build? Give your room a little less glow. Your laptop display stays usable, your work keeps going, and your monitors stay powered.
+
+- **One toggle, every external screen.** New displays join automatically while blackout is on.
+- **Your Mac stays awake.** Idle sleep is prevented while Dimlet is open, even with blackout off.
+- **Charging can continue.** Displays stay connected and powered; Dimlet doesn't send a monitor power-off command.
+- **A sleepy little friend in your menu bar.** Open eyes mean OFF. Sleepy eyes mean ON.
+- **Native and small.** Swift + AppKit. No runtime dependencies, account, analytics, or automatic network requests.
+
+> Dimlet covers screens with black windows. It does **not** turn off the panel or guarantee power savings. Keep your monitors' physical power switches on. USB-C charging still depends on the monitor, cable, and power supply.
+
+## Install
+
+Requires **macOS 13 or later**. The universal release includes **Apple Silicon and Intel** binaries.
+
+1. Download `Dimlet-0.1.0-macos-universal.zip` from [Releases](https://github.com/onodela2000/dimlet/releases/latest).
+2. Unzip it and drag **Dimlet.app** into **Applications**.
+3. Open Dimlet. Look for the little monitor in your **menu bar**. Blackout starts **OFF**.
+
+**First launch:** this early release is ad-hoc signed, but **not Apple-notarized or Developer ID signed**. macOS may block an app downloaded from the internet. If you trust the source, attempt to open it, then use **System Settings → Privacy & Security → Open Anyway**. Follow [Apple's instructions](https://support.apple.com/en-us/102445); don't disable Gatekeeper globally. Building from source is another option.
+
+Dimlet doesn't need Accessibility, Screen Recording, or administrator access to run. To launch it at login, add it in **System Settings → General → Login Items**. This is optional; Dimlet doesn't add itself.
+
+## Use
+
+Click the monitor icon, then **Black out all external displays**.
+
+| State | External displays | Built-in display | Mac idle sleep |
+| --- | --- | --- | --- |
+| OFF | Normal | Unchanged | Prevented |
+| ON | Covered in black | Unchanged | Prevented |
+| Quit | Normal | Unchanged | Dimlet's prevention is removed |
+
+Click any black screen to reveal **all** external screens. The app stays in the menu bar, ready for next time. You can also use the same menu toggle to turn blackout off.
+
+The menu follows your system's language: English or Japanese. While blackout is on, display idle sleep is prevented too, so the monitor connection can remain active. When you're done with background work, **Quit Dimlet** to release its sleep-prevention assertions.
+
+## A few honest limits
+
+- Use **extended desktop** mode. Mirrored displays are skipped to avoid covering the built-in screen.
+- On a desktop Mac, all independent screens are external. Click a black screen to get them back.
+- Keep a MacBook's lid open. Dimlet doesn't override lid-close sleep, manual Sleep, shutdown, or a depleted battery.
+- It doesn't make a particular AI app or job run forever. App failures and network interruptions can still happen.
+- Blackout is a visual cover, **not a privacy lock**. On an LCD, some backlight glow may remain.
+- Other apps may keep the Mac awake after Dimlet quits. Dimlet only removes its own assertions.
+
+## Why it exists
+
+Turning off a USB-C monitor can also stop charging the laptop attached to it. That is inconvenient when you want a dark room and a Mac that keeps working. Dimlet leaves the display link alone and puts a black cover over the external screens instead.
+
+The original setup was a MacBook Air M4 with two INNOCN GA32V1M monitors. That setup kept charging during blackout. This is an observation, **not a compatibility guarantee for every monitor**. No DDC/CI, DSC, firmware, or display-mode changes are required by Dimlet.
+
+## Build it yourself
+
+You need Xcode Command Line Tools with **Swift 5.9 or later** (or full Xcode).
+
+```bash
+git clone https://github.com/onodela2000/dimlet.git
+cd dimlet
+swift test
+./scripts/build.sh
+open dist/Dimlet.app
+```
+
+For a universal release:
+
+```bash
+./scripts/build.sh --universal
+```
+
+The script builds the app, renders the SVG icon into an `.icns`, applies an ad-hoc signature, and writes a ZIP with a SHA-256 checksum to `dist/`. Nothing is installed automatically. No third-party packages are downloaded.
+
+Optional integration check in an interactive desktop session:
+
+```bash
+dist/Dimlet.app/Contents/MacOS/Dimlet --smoke-test
+```
+
+This briefly covers eligible external screens, checks ON/OFF behavior, built-in display exclusion, SVG resources, and sleep assertions, then restores the screens and quits. Unit tests cover display selection, mirroring, and hot-plug input changes. Runtime testing has been performed on Apple Silicon with macOS 26.3.1; Intel and older macOS releases need broader hands-on testing.
+
+## Contribute
+
+Small, thoughtful improvements are welcome. Run `swift test` and `./scripts/build.sh` before opening a pull request. For display issues, include your macOS version, Mac model, connection type, and whether mirroring is enabled. Please omit serial numbers and other personal data.
+
+The source code and original SVG artwork are [MIT licensed](LICENSE).

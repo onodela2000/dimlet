@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="600" viewBox="0 0 1280 600">
+<rect width="1280" height="600" rx="32" fill="#F9F7FC"/>
+<circle cx="1130" cy="30" r="250" fill="#F0EAF9"/>
+<circle cx="1030" cy="590" r="200" fill="#F0EAF9"/>
+<g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+<rect x="80" y="76" width="174" height="34" rx="17" fill="#EDE6F7"/>
+<text x="167" y="99" text-anchor="middle" font-size="14" font-weight="600" fill="#706085">A tiny macOS friend</text>
+<text x="76" y="227" font-size="100" font-weight="750" letter-spacing="-5" fill="#34304A">Dimlet</text>
+<text x="80" y="298" font-size="33" font-weight="600" letter-spacing="-.8" fill="#34304A">Screens rest.</text>
+<text x="80" y="343" font-size="33" font-weight="600" letter-spacing="-.8" fill="#34304A">Your Mac keeps going.</text>
+<text x="80" y="400" font-size="19" fill="#777086">Black out your external displays.</text>
+<text x="80" y="429" font-size="19" fill="#777086">Keep your work — and your charging — going.*</text>
+<text x="80" y="510" font-size="14" fill="#777086">FREE &amp; OPEN SOURCE  ·  NATIVE SWIFT  ·  NO ACCOUNT</text>
+<text x="80" y="551" font-size="12" fill="#8C8497">* Black overlays, not power-off. USB-C charging depends on your setup.</text>
+</g>
+<g transform="translate(733 95) scale(.43)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F0E9FF"/><stop offset="1" stop-color="#D7C9F5"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#464264"/><stop offset="1" stop-color="#302D49"/></linearGradient>
+  </defs>
+  <rect x="52" y="52" width="920" height="920" rx="214" fill="url(#bg)"/>
+  <ellipse cx="510" cy="814" rx="239" ry="27" fill="#B8A5DC" opacity=".32"/>
+  <path d="M476 652h72v98h-72z" fill="#AAA0C6"/>
+  <rect x="373" y="746" width="278" height="48" rx="24" fill="#FFF9F1"/>
+  <rect x="199" y="275" width="626" height="412" rx="65" fill="#FFF9F1"/>
+  <rect x="228" y="304" width="568" height="333" rx="40" fill="url(#screen)"/>
+  <path d="M347 473q36 39 72 0M604 473q36 39 72 0" fill="none" stroke="#F5EEFF" stroke-width="17" stroke-linecap="round"/>
+  <ellipse cx="345" cy="533" rx="31" ry="14" fill="#F3B7CB" opacity=".85"/>
+  <ellipse cx="679" cy="533" rx="31" ry="14" fill="#F3B7CB" opacity=".85"/>
+  <path d="M487 550q25 24 50 0" fill="none" stroke="#F5EEFF" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="512" cy="663" r="7" fill="#B4A5CB"/>
+  <path d="M757 155c-22 43 3 90 50 93-25 30-74 26-96-7-21-33-6-75 28-88 6-2 12-2 18 2z" fill="#FFF4C4"/>
+  <path d="M278 172v42m-21-21h42M836 350v27m-14-14h28" fill="none" stroke="#FFF9F1" stroke-width="12" stroke-linecap="round"/>
+</g></svg>
